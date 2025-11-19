@@ -33,7 +33,7 @@ export const SkillsSection = () => {
     "VS Code",
   ]
   return (
-    <div className="mt-30">
+    <div className="mt-45">
       <h2 className="text-[54px] font-light tracking-wider leading-[120%]">Skills & Technologies</h2>
       <div className="grid grid-cols-2 mt-10">
         <div className="border-r border-thirtyColor/50 pr-20">

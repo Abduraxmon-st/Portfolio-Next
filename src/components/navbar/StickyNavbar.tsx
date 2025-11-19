@@ -1,9 +1,11 @@
 import { ProgressBar } from "../progress-bar"
 import { Logo } from "../logotip";
 import { useEffect, useState } from "react";
+import { useCursor } from "@/src/context/CursorContext";
 
 export const StickyNavbar = ({ visible }: { visible: boolean }) => {
   const [onDrag, setOnDrag] = useState(false)
+  const { setHovered } = useCursor()
   useEffect(() => {
     const navbar = document.getElementById("draggable-navbar") as HTMLElement;
     if (!navbar) return;
@@ -75,9 +77,12 @@ export const StickyNavbar = ({ visible }: { visible: boolean }) => {
   return (
     <div
       id="draggable-navbar"
-      className={`fixed overflow-hidden top-5 left-1/2 max-w-[450px] -translate-x-1/2 w-full flex items-center justify-between p-4 pl-6 pr-6 border border-borderColor rounded-2xl bg-black/60 navbar-shadow transition-all ease-in-out select-none ${visible ? "translate-y-0 duration-500" : onDrag ? "" : "-translate-y-[200%] duration-200"}`}>
+      className={`fixed z-49 overflow-hidden top-5 left-1/2 max-w-[450px] -translate-x-1/2 w-full flex items-center justify-between p-4 pl-6 pr-6 border border-borderColor rounded-2xl bg-black/60 navbar-shadow transition-all ease-in-out select-none ${visible ? "translate-y-0 duration-500" : onDrag ? "" : "-translate-y-[200%] duration-200"}`}>
       <Logo />
-      <div className="relative group">
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="relative group">
         <a
           style={{ cursor: "none" }}
           href="#contact-me"

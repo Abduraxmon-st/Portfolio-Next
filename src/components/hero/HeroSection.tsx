@@ -21,6 +21,15 @@ export const HeroSection = () => {
         </div>
         <div className="w-[50%] h-1 my-5 bg-linear-to-r from-cyan-400 to-transparent"></div>
         <p className="text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
+        <div className="text-[17px] tracking-wide text-white/70">
+          You can also check my {" "}
+          <a
+            style={{ cursor: "none" }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            href="https://github.com/Abduraxmon-st"
+            className="text-thirtyColor relative group">GitHub <div className=" absolute w-[0%] group-hover:w-[90%] h-px left-1/2 -translate-x-[55%] -bottom-px bg-thirtyColor transition-all" /></a> account.
+        </div>
         <a
           className="w-fit flex mt-5"
           href="#contact-me"
@@ -34,7 +43,7 @@ export const HeroSection = () => {
         </a>
       </div>
       <div className="overflow-hidden w-100 h-120 border-2 border-borderColor rounded-[80px] rounded-tl-[160px] rounded-br-[160px]">
-        <Image src={logoBg} alt="logo" width={100} height={100} loading="lazy" className="w-full h-full object-cover" />
+        <Image src={logoBg} alt="logo" width={100} height={100} loading="lazy" className="w-full h-full object-cover hover:scale-106 transition-transform duration-500" />
       </div>
     </div>
   )

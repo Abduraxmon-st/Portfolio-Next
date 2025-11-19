@@ -1,12 +1,12 @@
 "use client"
 import { useEffect, useState } from "react";
 import { StickyNavbar } from "./StickyNavbar";
-import { ContactButton } from "../button/ContactButton";
 import { Logo } from "../logotip";
+import { useCursor } from "@/src/context/CursorContext";
 
 export const Navbar = () => {
   const [visible, setVisible] = useState(false);
-
+  const { setHovered } = useCursor()
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 200) {
@@ -24,7 +24,10 @@ export const Navbar = () => {
       <StickyNavbar visible={visible} />
       <div className={`relative w-full max-w-[450px] mx-auto flex items-center justify-between py-4 pl-5 pr-8 rounded-[13px] border border-[#0e122b] bg-[#04081E] bg-[linear-gradient(270deg,rgba(4,8,30,1)_0%,rgba(12,14,35,1)_100%)]`}>
         <Logo />
-        <div className="relative group">
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="relative group">
           <a
             style={{ cursor: "none" }}
             href="#contact-me"

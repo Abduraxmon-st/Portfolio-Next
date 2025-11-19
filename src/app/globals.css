@@ -227,3 +227,27 @@
   transition: none !important;
   cursor: grabbing;
 }
+
+.border-gradient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #0000;
+  border-radius: 12px;
+  background: linear-gradient(#0000007f, #000) padding-box, linear-gradient(var(--angle),
+      #000000,
+      oklch(31.5% 0.143 215.221)) border-box;
+  animation: 8s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
