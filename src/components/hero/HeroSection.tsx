@@ -16,7 +16,7 @@ export const HeroSection = () => {
           Frontend Developer
         </PrimaryBadge>
         <div className="mt-5">
-          <h2 className="text-[54px] font-light tracking-wider leading-[120%] flex">Tojixo<div className="text-[40px] tracking-normal">'</div>jayev</h2>
+          <h2 className="main-title flex">Tojixo<div className="text-[40px] tracking-normal">'</div>jayev</h2>
           <h1 className="text-[54px] font-light tracking-wider leading-[100%] text-cyan-400">Abduraxmon</h1>
         </div>
         <div className="w-[50%] h-1 my-5 bg-linear-to-r from-cyan-400 to-transparent"></div>

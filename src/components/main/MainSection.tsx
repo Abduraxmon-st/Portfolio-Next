@@ -6,7 +6,7 @@ import AboutSection from "./AboutSection"
 export const MainSection = () => {
   return (
     <div className="mt-30">
-      <h2 className="text-[54px] font-light tracking-wider leading-[120%]">About Me</h2>
+      <h2 className="main-title">About Me</h2>
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />

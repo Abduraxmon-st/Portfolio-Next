@@ -1,6 +1,9 @@
 "use client"
+import Image from "next/image"
 import { ContactButton } from "../button/ContactButton"
 import { Badge } from "../ui/badge"
+import { ProjectSwiper } from "../swiper"
+import ShareButton from "../button/ShareButton"
 
 export const ProjectsSection = () => {
   const projects = [
@@ -11,6 +14,14 @@ export const ProjectsSection = () => {
         "Next js",
         "TypeSrcipt",
         "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
       ]
     },
     {
@@ -20,6 +31,11 @@ export const ProjectsSection = () => {
         "Next js",
         "TypeSrcipt",
         "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
       ]
     },
     {
@@ -29,18 +45,25 @@ export const ProjectsSection = () => {
         "Next js",
         "TypeSrcipt",
         "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
       ]
     },
   ]
   return (
     <div className="mt-45">
-      <h2 className="text-[54px] font-light tracking-wider leading-[120%]">Featured Projects</h2>
+      <h2 className="main-title">Featured Projects</h2>
       <div className="mt-10 flex flex-col">
-        {projects.map((item, i) => (
+        {projects?.map((item, i) => (
           <div key={i}>
             <div className="grid grid-cols-2 gap-25 relative">
               <div className="absolute left-1/2 h-90 w-px bg-mainColor bg-[linear-gradient(0deg,rgba(0,0,0,1)_-50%,rgba(190,193,221,0.1)_50%,rgba(0,0,0,1)_150%)]" />
-              <div className={`${i % 2 === 0 ? "col-start-2 row-start-1" : "col-start-1"} bg-gray-800 h-90 rounded-[24px]`}></div>
+              <div className={`${i % 2 === 0 ? "col-start-2 row-start-1" : "col-start-1"} bg-gray-800 h-90 rounded-[20px] overflow-hidden`}>
+                <ProjectSwiper data={item.images} />
+              </div>
               <div className={`${i % 2 === 0 ? "col-start-1" : "col-start-2 row-start-1"} flex flex-col space-y-4 sm:space-y-6 p-5 pl-0`}>
                 <div>
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-white/90 mb-3 sm:mb-4 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
@@ -57,7 +80,7 @@ export const ProjectsSection = () => {
                   href="#"
                   className="w-max mt-auto">
                   <ContactButton>
-                    View more
+                    View More
                   </ContactButton>
                 </a>
               </div>

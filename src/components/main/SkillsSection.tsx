@@ -34,7 +34,7 @@ export const SkillsSection = () => {
   ]
   return (
     <div className="mt-45">
-      <h2 className="text-[54px] font-light tracking-wider leading-[120%]">Skills & Technologies</h2>
+      <h2 className="main-title">Skills & Technologies</h2>
       <div className="grid grid-cols-2 mt-10">
         <div className="border-r border-thirtyColor/50 pr-20">
           <h3 className="flex items-center gap-2.5 mb-5 text-2xl font-light">

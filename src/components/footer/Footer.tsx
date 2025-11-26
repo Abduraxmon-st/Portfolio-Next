@@ -4,7 +4,7 @@ import { ContactForm } from "../form"
 export const Footer = () => {
   return (
     <div className="mt-45">
-      <h2 className="text-[54px] font-light tracking-wider leading-[120%] text-center">Get In <span className="text-thirtyColor">Touch</span></h2>
+      <h2 className="main-title text-center">Get In <span className="text-thirtyColor">Touch</span></h2>
       <div className="flex items-center gap-20 mt-10">
         <ContactForm />
         <div className="border-r border-borderColor/60 w-1 h-70" />
