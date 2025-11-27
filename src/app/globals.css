@@ -300,3 +300,131 @@
   background: #0060c7;
   opacity: 1;
 }
+
+.check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  stroke-width: 4;
+  stroke: #fff;
+  fill: none;
+  stroke-linecap: round;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Circle draw */
+.checkmark-circle {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: circleDraw 0.7s ease-out forwards;
+}
+
+/* Check draw */
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkDraw 0.5s ease-out 0.8s forwards;
+}
+
+/* Animations */
+@keyframes circleDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.x-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.xmark {
+  width: 18px;
+  height: 18px;
+  stroke-width: 4;
+  stroke: oklch(50.5% 0.213 27.518);
+  /* red-500 */
+  fill: none;
+  stroke-linecap: round;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Circle draw */
+.xmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: circleDraw 0.8s ease-out forwards;
+}
+
+/* First line of X */
+.xmark-line1 {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: xDraw 0.5s ease-out 0.8s forwards;
+}
+
+/* Second line of X */
+.xmark-line2 {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: xDraw 0.5s ease-out 0.9s forwards;
+}
+
+/* Animations */
+@keyframes circleDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes xDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade1 {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade1.show1 {
+  opacity: 1 !important;
+}

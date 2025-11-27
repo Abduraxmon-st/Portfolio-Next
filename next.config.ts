@@ -13,7 +13,9 @@ const nextConfig: NextConfig = {
   //     "http://0.0.0.0:3000"
   //   ],
   // }
-
+  env: {
+  GOOGLE_SHEETS_API_URL: process.env.GOOGLE_SHEETS_API_URL,
+},
 };
 
 export default nextConfig;

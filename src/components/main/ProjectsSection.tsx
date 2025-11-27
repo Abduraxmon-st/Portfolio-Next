@@ -1,10 +1,8 @@
 "use client"
-import Image from "next/image"
 import { ContactButton } from "../button/ContactButton"
 import { Badge } from "../ui/badge"
 import { ProjectSwiper } from "../swiper"
-import ShareButton from "../button/ShareButton"
-
+import checkIcon from "@/src/assets/icons/icons8-done.gif"
 export const ProjectsSection = () => {
   const projects = [
     {

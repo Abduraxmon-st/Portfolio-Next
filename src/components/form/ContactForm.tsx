@@ -1,5 +1,5 @@
 "use client"
-import { MousePointer2 } from "lucide-react"
+import { Loader2, MousePointer2 } from "lucide-react"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
@@ -7,10 +7,33 @@ import { useCursor } from "@/src/context/CursorContext"
 import z from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
+import { useContactForm } from "@/src/hooks/useContactForm"
+import { PhoneOrEmailInput } from "../input/PhoneOrEmailInput"
+import AnimatedCheck from "@/src/assets/icons/checkIcon"
+import AnimatedX from "@/src/assets/icons/xIcon"
+import { useRef, useState } from "react"
+import FloatingTextarea from "../input/FormTextArea"
 const contactFormSchema = z.object({
-  name: z.string().min(1, "Name is required").max(100),
-  contact: z.string().min(1, "Email or Phone is required").max(100),
+  name: z.string().min(3, "Name is required").max(100),
+  contact: z.string().min(5, "Email or Phone number is required").max(100)
+    .refine((value) => {
+      const phoneRegex = /^\+998\d{9}$/;
+      if (phoneRegex.test(value)) {
+        return value.length === 13;
+      }
+      return true;
+    }, {
+      message: "Phone number must be in +998 XX XXX XX XX format"
+    })
+    .refine((value) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (value.includes("@")) {
+        return emailRegex.test(value);
+      }
+      return true;
+    }, {
+      message: "Please enter a valid email address"
+    }),
   message: z.string().min(1, "Message is required").max(500),
 })
 type ContactFormValues = z.infer<typeof contactFormSchema>
@@ -21,43 +44,42 @@ export const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid },
+    watch,
+    control,
+    formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      contact: "",
+      message: "",
+      name: ""
+    }
   })
-  const [success, setSuccess] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
+  const { loading, success, error, send } = useContactForm();
+  const [isFocused, setIsFocused] = useState(false);
+
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const { ref: formRef, ...nameRegister } = register("name");
+  const value = watch("name") || "";
+  const isFilled = value.length > 0;
 
   const onSubmit = async (data: ContactFormValues) => {
-    setLoading(true)
-    setSuccess(null)
-    setError(null)
 
-    try {
-      const formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("contact", data.contact);
-      formData.append("message", data.message);
-
-      const res = await fetch("https://script.google.com/macros/s/AKfycbxBEnD9hKgohz4FEb3fuJjzGYzBQcJcyVftrXLN4ri_Farz49tSJnzHQ4dqmdCXKTA/exec", {
-        method: "POST",
-        body: formData,
-      });
-      const resData = await res.json()
-      if (resData.success) {
-        setSuccess("Message sent successfully!")
-        reset()
-      } else {
-        setError("Failed to send message")
+    await send(
+      {
+        name: data.name,
+        contact: data.contact,
+        message: data.message,
       }
-    } catch (err) {
-      console.error(err)
-      setError("Failed to send message")
-    } finally {
-      setLoading(false)
-    }
-  }
+    );
+
+    reset({
+      contact: "",
+      message: "",
+      name: ""
+    });
+  };
+
   return (
     <div className="w-[40%] h-max">
       <form
@@ -66,46 +88,90 @@ export const ContactForm = () => {
         id="contact-me"
         className="flex flex-col gap-5" >
 
-        <Input
-          style={{ cursor: "none" }}
+        <div className="relative h-fit">
+          {/* Label */}
+          <label
+            className={`
+          absolute text-descColor/50 pointer-events-none transition-all duration-200
+          ${isFocused || isFilled
+                ? "-top-5 left-0 text-xs"
+                : "top-1/2 -translate-y-1/2 left-4 text-sm"
+              }
+          ${errors.name ? "text-red-500/70" : ""}
+        `}
+          >
+            {errors.name ? errors.name.message : "Your Name"}
+          </label>
+
+          {/* Input */}
+          <Input
+            {...nameRegister}
+            ref={(el) => {
+              formRef(el);        // RHF ref
+              nameRef.current = el; // local ref (agar kerak bo‘lsa)
+            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={(e) => {
+              setIsFocused(false);
+              nameRegister.onBlur(e); // RHF blur
+            }}
+            type="text"
+            style={{ cursor: "none" }}
+            className={`
+          text-descColor relative z-2
+          ${errors.name
+                ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30"
+                : "placeholder:text-transparent"
+              }
+        `}
+            placeholder=" "
+          />
+        </div>
+
+        <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          {...register("name")}
-          type="text"
-          className="text-descColor placeholder:text-descColor/50"
-          placeholder="Your Name" />
-        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+        >
 
-        <Input
-          style={{ cursor: "none" }}
+          <PhoneOrEmailInput
+            control={control}
+            {...register("contact")}
+            errors={errors}
+            className={`text-descColor relative z-2 ${errors.contact ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30" : "placeholder:text-descColor/50"}`}
+            placeholder={errors.contact ? `${errors.contact.message}` : "Email or Phone number"} />
+        </div>
+        <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          {...register("contact")}
-          type="text"
-          className="text-descColor placeholder:text-descColor/50"
-          placeholder="Email or Phone" />
-        {errors.contact && <p className="text-red-500 text-sm">{errors.contact.message}</p>}
-
-        <Textarea
-          style={{ cursor: "none" }}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          {...register("message")}
-          placeholder="Your Message"
-          className="text-descColor placeholder:text-descColor/50" />
-        {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
-
+        >
+          <FloatingTextarea
+            control={control}
+            name="message"
+            error={errors.message}
+          />
+        </div>
         <Button
           style={{ cursor: "none" }}
           type="submit"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          disabled={!isValid || loading}
-          className="h-11.5 rounded-[12px] text-descColor border border-borderColor border-gradient hover:scale-103 active:scale-100 duration-300"
-        >{loading ? "Sending..." : "Send me Message"}
-          <MousePointer2 className="size-4.5 -scale-x-100 mt-[3px]" />
+          disabled={loading || !!errors.message || !!errors.contact || !!errors.name}
+          className={`h-11.5 gap-3! rounded-[12px] border-gradient hover:scale-103 active:scale-100 duration-300 
+          ${error ? "text-red-700" : "text-descColor"}`}
+        >
+          {loading ? "Sending"
+            : success ? success
+              : error ? error
+                : "Send me Message"}
+          {loading ?
+            <Loader2 className="size-4.5 -scale-x-100 mt-[3px] animate-spin" />
+            : success ?
+              <AnimatedCheck show />
+              : error ?
+                <AnimatedX show />
+                : <MousePointer2 className="size-4.5 -scale-x-100 mt-[3px]" />}
         </Button>
-      </form>
-    </div>
+      </form >
+    </div >
   )
 }
