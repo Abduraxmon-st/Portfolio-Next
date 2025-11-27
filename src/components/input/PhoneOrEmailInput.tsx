@@ -46,6 +46,7 @@ export const PhoneOrEmailInput: React.FC<PhoneOrEmailInputProps> = ({
         return (
           <div className={`relative flex items-end transition-all duration-200 ${isFloating ? "h-15" : "h-12"}`}>
             <label
+              style={{ cursor: "none" }}
               className={`
                 absolute z-1 text-sm transition-all duration-200 text-descColor/50
                 ${isFloating ? "-top-1.5 left-0 text-xs" : "top-1/2 -translate-y-1/2 left-4 text-sm"}
@@ -57,10 +58,11 @@ export const PhoneOrEmailInput: React.FC<PhoneOrEmailInputProps> = ({
 
             {/* INPUT */}
             <Input
+              style={{ cursor: "none" }}
               className={className}
               value={value}
               onFocus={() => setFocused(true)}
-              onBlur={(e) => {
+              onBlur={() => {
                 setFocused(false);
                 onBlur(); // RHF blur
               }}

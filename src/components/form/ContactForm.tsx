@@ -2,7 +2,6 @@
 import { Loader2, MousePointer2 } from "lucide-react"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
-import { Textarea } from "../ui/textarea"
 import { useCursor } from "@/src/context/CursorContext"
 import z from "zod"
 import { useForm } from "react-hook-form"
@@ -87,10 +86,13 @@ export const ContactForm = () => {
         noValidate
         id="contact-me"
         className="flex flex-col gap-5" >
-
-        <div className="relative h-fit">
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="relative h-fit">
           {/* Label */}
           <label
+            style={{ cursor: "none" }}
             className={`
           absolute text-descColor/50 pointer-events-none transition-all duration-200
           ${isFocused || isFilled
@@ -107,13 +109,13 @@ export const ContactForm = () => {
           <Input
             {...nameRegister}
             ref={(el) => {
-              formRef(el);        // RHF ref
-              nameRef.current = el; // local ref (agar kerak bo‘lsa)
+              formRef(el);      
+              nameRef.current = el
             }}
             onFocus={() => setIsFocused(true)}
             onBlur={(e) => {
               setIsFocused(false);
-              nameRegister.onBlur(e); // RHF blur
+              nameRegister.onBlur(e);
             }}
             type="text"
             style={{ cursor: "none" }}

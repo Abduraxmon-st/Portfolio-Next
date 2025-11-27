@@ -2,7 +2,6 @@
 import { ContactButton } from "../button/ContactButton"
 import { Badge } from "../ui/badge"
 import { ProjectSwiper } from "../swiper"
-import checkIcon from "@/src/assets/icons/icons8-done.gif"
 export const ProjectsSection = () => {
   const projects = [
     {
@@ -85,8 +84,6 @@ export const ProjectsSection = () => {
             </div>
             <div className={`${projects.length - 1 === i && "hidden"} flex items-center justify-center py-5 relative`}>
               <div className="relative opacity-16">
-                {/* <div className="absolute border w-8 rotate-90 top-[7px] -left-2 rounded" />
-                <div className="absolute border w-8 rotate-0 top-[7px] -left-2 rounded" /> */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m12 6.7l1.45 3.85L17.3 12l-3.85 1.45L12 17.3l-1.45-3.85L6.7 12l3.85-1.45zM12 1L9 9l-8 3l8 3l3 8l3-8l8-3l-8-3z" /></svg>
               </div>
             </div>

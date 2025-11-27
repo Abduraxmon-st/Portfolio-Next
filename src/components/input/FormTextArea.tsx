@@ -16,6 +16,7 @@ export default function FloatingTextarea({ control, name, error }: any) {
           <div className={`relative flex items-end transition-all duration-200 ${focused || value ? "h-27" : "h-24"}`}>
             {/* Label */}
             <label
+              style={{ cursor: "none" }}
               className={`
                 absolute pointer-events-none text-descColor/50 transition-all duration-150
                 ${focused || value
@@ -32,7 +33,8 @@ export default function FloatingTextarea({ control, name, error }: any) {
             <Textarea
               {...field}
               onFocus={() => setFocused(true)}
-              onBlur={(e) => {
+              style={{ cursor: "none" }}
+              onBlur={() => {
                 setFocused(false);
                 field.onBlur(); // RHF blur
               }}
