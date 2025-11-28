@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { Controller, type Control } from "react-hook-form"
 import { Input } from "../ui/input"
 
-// Telefon raqamni formatlash
 function formatUzPhone(value: string) {
   const digits = value.replace(/\D/g, "")
   let formatted = "+998"
@@ -64,12 +63,11 @@ export const PhoneOrEmailInput: React.FC<PhoneOrEmailInputProps> = ({
               onFocus={() => setFocused(true)}
               onBlur={() => {
                 setFocused(false);
-                onBlur(); // RHF blur
+                onBlur(); 
               }}
               onChange={(e: any) => {
                 let val = e.target.value;
 
-                // Emailga o'tish
                 if (/[a-zA-Z@]/.test(val)) {
                   val = val.replace(/\s/g, "");
                   val = val.replace(/^\+998\s?/, "");
@@ -77,7 +75,6 @@ export const PhoneOrEmailInput: React.FC<PhoneOrEmailInputProps> = ({
                   return;
                 }
 
-                // Faqat raqam bo‘lsa → phone format
                 if (/^\d/.test(val) || val.startsWith("+998")) {
                   if (!val.startsWith("+998")) {
                     val = "+998" + val.replace(/\D/g, "");

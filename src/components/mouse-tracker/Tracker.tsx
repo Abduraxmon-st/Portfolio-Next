@@ -25,10 +25,9 @@ export default function Tracker() {
     setIsMobile(mobile);
   }, []);
 
-  // Server va client render bir xil bo‘lishi uchun:
   if (isMobile === null) return null;
 
-  if (isMobile) return null; // yoki hidden class ham bo'ladi
+  if (isMobile) return null;
 
   return (
     <div

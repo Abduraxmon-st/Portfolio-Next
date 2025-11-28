@@ -21,7 +21,7 @@ export function useSmoothCursor(speed = 0.1) {
       raf.current = requestAnimationFrame(follow);
     };
 
-    follow(); // start once
+    follow();
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);

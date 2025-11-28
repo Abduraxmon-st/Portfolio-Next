@@ -2,9 +2,10 @@
 import { ContactButton } from "../button/ContactButton"
 import { Badge } from "../ui/badge"
 import { ProjectSwiper } from "../swiper"
-export const ProjectsSection = () => {
+export const ProjectsSection = ({ page, button }: { page: boolean, button: boolean }) => {
   const projects = [
     {
+      isHome: true,
       title: "Save Meal",
       desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
       technologies: [
@@ -22,6 +23,7 @@ export const ProjectsSection = () => {
       ]
     },
     {
+      isHome: true,
       title: "Save Meal",
       desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
       technologies: [
@@ -36,6 +38,55 @@ export const ProjectsSection = () => {
       ]
     },
     {
+      isHome: false,
+      title: "Save Meal",
+      desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
+      technologies: [
+        "Next js",
+        "TypeSrcipt",
+        "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
+      ]
+    },
+    {
+      isHome: false,
+      title: "Save Meal",
+      desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
+      technologies: [
+        "Next js",
+        "TypeSrcipt",
+        "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
+      ]
+    },
+    {
+      isHome: false,
+      title: "Save Meal",
+      desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
+      technologies: [
+        "Next js",
+        "TypeSrcipt",
+        "Shadcn"
+      ],
+      images: [
+        "https://img.freepik.com/free-photo/view-chameleon-with-bright-neon-colors_23-2151682849.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://static.vecteezy.com/ti/photos-gratuite/t2/27001092-ensemble-de-jaune-fleurs-tournesols-avec-feuilles-botanique-image-floral-conception-pour-numerique-contenu-photo.jpg",
+        "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
+      ]
+    },
+    {
+      isHome: false,
       title: "Save Meal",
       desc: "lork;rnpuwbgoiwrb goab gqerh goeubthgw0ietubh wokrfbg oetjb worhti",
       technologies: [
@@ -50,11 +101,17 @@ export const ProjectsSection = () => {
       ]
     },
   ]
+  const isFilteredData = page ? projects
+    : projects.filter((item) => {
+      if (projects.length > 3) {
+        return item.isHome === true ? item.isHome : null
+      } else return projects
+    })
   return (
-    <div className="mt-45">
-      <h2 className="main-title">Featured Projects</h2>
+    <div className={`${page ? "mt-10" : "mt-45"}`}>
+      <h2 className={`main-title ${page ? "hidden" : ""}`}>Featured Projects</h2>
       <div className="mt-10 flex flex-col">
-        {projects?.map((item, i) => (
+        {isFilteredData?.map((item, i) => (
           <div key={i}>
             <div className="grid grid-cols-2 gap-25 relative">
               <div className="absolute left-1/2 h-90 w-px bg-mainColor bg-[linear-gradient(0deg,rgba(0,0,0,1)_-50%,rgba(190,193,221,0.1)_50%,rgba(0,0,0,1)_150%)]" />
@@ -82,7 +139,7 @@ export const ProjectsSection = () => {
                 </a>
               </div>
             </div>
-            <div className={`${projects.length - 1 === i && "hidden"} flex items-center justify-center py-5 relative`}>
+            <div className={`${isFilteredData.length - 1 === i && "hidden"} flex items-center justify-center py-5 relative`}>
               <div className="relative opacity-16">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m12 6.7l1.45 3.85L17.3 12l-3.85 1.45L12 17.3l-1.45-3.85L6.7 12l3.85-1.45zM12 1L9 9l-8 3l8 3l3 8l3-8l8-3l-8-3z" /></svg>
               </div>
@@ -90,6 +147,18 @@ export const ProjectsSection = () => {
           </div>
         ))}
       </div>
+      {(button && (projects.length > 3)) && (
+        <div className="flex items-center justify-center mt-15">
+          <a
+            style={{ cursor: "none" }}
+            href="/portfolio"
+            className="w-max">
+            <ContactButton className="py-7! rounded-full!">
+              View All Projects
+            </ContactButton>
+          </a>
+        </div>
+      )}
     </div>
   )
 }

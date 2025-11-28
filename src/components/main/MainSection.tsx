@@ -9,7 +9,7 @@ export const MainSection = () => {
       <h2 className="main-title">About Me</h2>
       <AboutSection />
       <SkillsSection />
-      <ProjectsSection />
+      <ProjectsSection page={false} button/>
       <ExperienceSection />
     </div>
   )

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export default function ShareButton({
   title,
   text,
-  url, // qrcode image URL
+  url,
 }: {
   title: string;
   text: string;
@@ -11,7 +11,6 @@ export default function ShareButton({
 }) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  // URL -> File convert
   async function urlToFile(imageUrl: string) {
     const res = await fetch(imageUrl);
     const blob = await res.blob();
@@ -30,7 +29,7 @@ export default function ShareButton({
         await navigator.share({
           title,
           text,
-          files: [file], // rasmni file sifatida jo‘natish
+          files: [file],
         });
       } catch (err) {
         console.error("Sharing failed:", err);

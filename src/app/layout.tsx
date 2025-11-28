@@ -3,6 +3,13 @@ import { Poppins, Inter } from "next/font/google";
 import "./globals.css"
 import { CursorProvider } from "../context/CursorContext";
 import Tracker from "../components/mouse-tracker/Tracker";
+import Image from "next/image";
+import { lights } from "../assets/images";
+import { Container } from "../components/container";
+import { Navbar } from "../components/navbar";
+import { Footer } from "../components/footer";
+import { ToTopButton } from "../components/to-top/ToTopButton";
+import Circles from "./loading";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -35,9 +42,18 @@ export default function RootLayout({
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
         style={{ cursor: "none", overflow: "unset" }}
       >
+        <Image loading="eager" src={lights} alt="lights" className="absolute w-[40%]" />
+        <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-[40%]" />
         <CursorProvider>
           <Tracker />
+          <Container>
+            <Navbar />
+          </Container>
           {children}
+          <Container className="relative">
+            <Footer />
+          </Container>
+          <ToTopButton />
         </CursorProvider>
       </body>
     </html>

@@ -36,7 +36,7 @@ export default function FloatingTextarea({ control, name, error }: any) {
               style={{ cursor: "none" }}
               onBlur={() => {
                 setFocused(false);
-                field.onBlur(); // RHF blur
+                field.onBlur();
               }}
               placeholder=" "
               className={`text-descColor

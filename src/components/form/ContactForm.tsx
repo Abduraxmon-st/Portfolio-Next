@@ -16,20 +16,18 @@ const contactFormSchema = z.object({
   name: z.string().min(3, "Name is required").max(100),
   contact: z.string().min(5, "Email or Phone number is required").max(100)
     .refine((value) => {
-      const phoneRegex = /^\+998\d{9}$/;
-      if (phoneRegex.test(value)) {
-        return value.length === 13;
-      }
-      return true;
+      const cleaned = value.replace(/\D/g, "");
+      if (cleaned.startsWith("998")) {
+        return cleaned.length === 12
+      } else return true
     }, {
       message: "Phone number must be in +998 XX XXX XX XX format"
     })
     .refine((value) => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (value.includes("@")) {
+      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (/[A-Za-z]/.test(value)) {
         return emailRegex.test(value);
-      }
-      return true;
+      } else return true;
     }, {
       message: "Please enter a valid email address"
     }),
@@ -109,7 +107,7 @@ export const ContactForm = () => {
           <Input
             {...nameRegister}
             ref={(el) => {
-              formRef(el);      
+              formRef(el);
               nameRef.current = el
             }}
             onFocus={() => setIsFocused(true)}

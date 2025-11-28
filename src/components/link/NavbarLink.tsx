@@ -1,0 +1,29 @@
+"use client"
+import { useCursor } from "@/src/context/CursorContext";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const NavbarLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+  const { setHovered } = useCursor()
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative group">
+      <Link
+        style={{ cursor: "none" }}
+        href={href ?? "#"}
+      >
+        <span className={`group-hover:text-thirtyColor ${isActive ? "text-thirtyColor" : ""} transition-[color] duration-200`}>
+          {children}
+        </span>
+        <div className={`absolute h-0.5 transition-all duration-300 rounded-2xl ${isActive ? "w-full! left-0! bg-thirtyColor/80" : "w-0 -bottom-0.5 left-1/2 bg-thirtyColor/50 group-hover:w-full! group-hover:left-0!"}`}/>
+      </Link>
+    </div>
+  )
+}
+
+export default NavbarLink

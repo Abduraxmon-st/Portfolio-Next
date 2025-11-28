@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="626" height="626" viewBox="0 0 626 626">
   <defs>
     <clipPath id="roundClip">
-      <circle cx="313" cy="313" r="313"/>
+      <circle cx="313" cy="313" r="380"/>
     </clipPath>
   </defs>
 

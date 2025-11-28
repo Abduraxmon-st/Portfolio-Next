@@ -28,28 +28,25 @@ export function useContactForm() {
     const url = process.env.GOOGLE_SHEETS_API_URL
     if (!url) return
     const contact1 = data.contact.startsWith("+")
-      ? "'" + data.contact  // matn sifatida yozadi
+      ? "'" + data.contact
       : data.contact;
 
     try {
       await fetch(url, {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain",   // no-cors bo‘lsa JSON emas!
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           name: data.name,
           contact: contact1,
           message: data.message
         }),
-        mode: "no-cors",                  // ⭐ response opaque bo‘ladi
+        mode: "no-cors",
       });
-
-      // no-cors → javobni o‘qib bo‘lmaydi, shunchaki success deb hisoblaymiz
       setSuccess("Message sent successfully");
-    } catch (err) {
-      console.error(err);
-      setError("Failed to send message");
+    } catch (error) {
+      setError("Failed to send. Please try again");
     } finally {
       setLoading(false);
     }

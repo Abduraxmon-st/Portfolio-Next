@@ -30,12 +30,12 @@ export const ToTopButton = () => {
   return (
 
     <button
+      style={{ cursor: "none" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={scrollToTop}
-      className={`fixed ${visible ? "bottom-6 to-top" : "-bottom-12 to-top-bottom1"} right-6 z-50 bg-thirtyColor/5 text-white p-3 rounded-full shadow-lg transition-all duration-300 border border-borderColor hover:scale-105 hover:bg-thirtyColor/10 active:scale-95`}
+      className={`fixed ${visible ? "bottom-6 to-top" : "-bottom-12 to-top-bottom1"} right-6 z-50 bg-mainEasierColor text-white p-3 rounded-full shadow-lg transition-all duration-300 border border-borderColor hover:scale-105 hover:bg-mainEasierColor/50 active:scale-95`}
       aria-label="Scroll to top"
-      style={{cursor: "none"}}
     >
       <ArrowUp className="w-5 h-5" />
     </button>

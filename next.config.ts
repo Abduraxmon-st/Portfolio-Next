@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   //     "http://0.0.0.0:3000"
   //   ],
   // }
+  images: {
+    unoptimized: true,
+  },  
   env: {
   GOOGLE_SHEETS_API_URL: process.env.GOOGLE_SHEETS_API_URL,
 },
