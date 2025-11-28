@@ -55,7 +55,7 @@ const Circles: React.FC = () => {
                 height: `${localSize}vh`,
                 borderRadius: "50%",
                 border: isEven
-                  ? `2px dashed rgba(255,255,255,0.5)`
+                  ? `2px dashed oklch(78.9% 0.154 211.53)`
                   : `2px solid ${COLOR}`,
                 background: "transparent",
                 animation: `spin ${SPEED / (n || 1)}s linear infinite`,
