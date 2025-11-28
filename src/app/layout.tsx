@@ -53,6 +53,9 @@ export default function RootLayout({
           <Container className="relative">
             <Footer />
           </Container>
+          <div className="border-t border-borderColor py-7 xl:py-9 mt-20">
+            <p className="text-xs xl:text-base text-center text-descColor/50">© 2025 Abduraxmon Tojixo'jayev. All rights reserved.</p>
+          </div>
           <ToTopButton />
         </CursorProvider>
       </body>

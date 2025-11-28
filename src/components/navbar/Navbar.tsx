@@ -27,7 +27,7 @@ export const Navbar = () => {
   return (
     <>
       <StickyNavbar visible={visible} isHome={isHome} setHovered={setHovered} />
-      <div className={`relative w-full max-w-[450px] mx-auto flex items-center justify-between py-4 pl-5 pr-8 rounded-[13px] border border-[#0e122b] bg-[#04081E] bg-[linear-gradient(270deg,rgba(4,8,30,1)_0%,rgba(12,14,35,1)_100%)]`}>
+      <nav className={`relative w-full xl:max-w-[450px] xl:mx-auto flex items-center justify-between py-4 pl-5 pr-8 rounded-[13px] border border-[#0e122b] bg-[#04081E] bg-[linear-gradient(270deg,rgba(4,8,30,1)_0%,rgba(12,14,35,1)_100%)]`}>
         {
           isHome ? (
             <Logo />
@@ -64,7 +64,7 @@ export const Navbar = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   )
 }

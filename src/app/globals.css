@@ -12,6 +12,7 @@
   --color-descColor: #BEC1DD;
   --color-borderColor: #cbacf924;
   --color-mainEasierColor: #000738;
+  --breakpoint-mc: 860px;
   --font-poppins: var(--font-poppins);
   --font-inter: var(--font-inter);
   --color-background: var(--background);
@@ -132,7 +133,7 @@
   }
 
   .main-title {
-    @apply text-[54px] font-light tracking-wider leading-[120%]
+    @apply mc:text-[40px] xl:text-[54px] font-light tracking-wider leading-[120%]
   }
 }
 
@@ -300,6 +301,31 @@
 .swiper-pagination-bullet-active {
   background: #0060c7;
   opacity: 1;
+}
+
+@media (min-width: 0px) and (max-width: 1280px) {
+  .swiper-pagination-bullets {
+    background: #000;
+    background: linear-gradient(0deg, rgba(0, 3, 25, 1) 0%, rgba(0, 0, 0, 0.31) 100%);
+    bottom: 0px !important;
+    height: 12px;
+    padding: 2px 2px 0px 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #cbacf9;
+    opacity: 0.5;
+    margin: 0px 1px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #0060c7;
+    opacity: 1;
+  }
 }
 
 .check-container {

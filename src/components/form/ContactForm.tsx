@@ -78,7 +78,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="w-[40%] h-max">
+    <div className="w-1/2 xl:w-[40%] h-max">
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
@@ -171,7 +171,7 @@ export const ContactForm = () => {
                 <AnimatedX show />
                 : <MousePointer2 className="size-4.5 -scale-x-100 mt-[3px]" />}
         </Button>
-      </form >
-    </div >
+      </form>
+    </div>
   )
 }

@@ -33,15 +33,15 @@ export const SkillsSection = () => {
     "VS Code",
   ]
   return (
-    <div className="mt-45">
+    <div className="mt-30 xl:mt-45">
       <h2 className="main-title">Skills & Technologies</h2>
       <div className="grid grid-cols-2 mt-10">
-        <div className="border-r border-thirtyColor/50 pr-20">
+        <div className="border-r border-thirtyColor/50 pr-5 xl:pr-20">
           <h3 className="flex items-center gap-2.5 mb-5 text-2xl font-light">
             <Paintbrush size={24} className="text-thirtyColor" />
             Frontend
           </h3>
-          <div className="flex flex-wrap gap-x-2.5 gap-y-2">
+          <div className="flex flex-wrap gap-2 xl:gap-x-2.5 gap-y-2">
             {
               front.map((item, i) => (
                 <Badge
@@ -56,12 +56,12 @@ export const SkillsSection = () => {
             }
           </div>
         </div>
-        <div className="border-l border-thirtyColor/50 pl-25">
+        <div className="border-l border-thirtyColor/50 pl-7 xl:pl-25">
           <h3 className="flex items-center gap-2.5 mb-5 text-2xl font-light">
             <Wrench size={24} className="text-thirtyColor" />
             Tools & Others
           </h3>
-          <div className="flex flex-wrap gap-x-2.5 gap-y-2">
+          <div className="flex flex-wrap gap-2 xl:gap-x-2.5 gap-y-2">
             {
               tools.map((item, i) => (
                 <Badge
