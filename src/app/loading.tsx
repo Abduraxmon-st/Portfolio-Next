@@ -19,7 +19,7 @@ const Circles: React.FC = () => {
         zIndex: 99,
         margin: 0,
         padding: 0,
-        width: "99vw",
+        width: "99.9vw",
         height: "100vh",
         display: "flex",
         alignItems: "center",
