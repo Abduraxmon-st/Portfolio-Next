@@ -1,7 +1,5 @@
-export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-
-  console.log("slug:", slug);
-
-  return <div>Portfolio page: {slug}</div>;
+export default function PortfolioDetailPage({ params }: { params: { slug: string } }) {
+  console.log("Slug:", params.slug);
+  
+  return <div>{params.slug}</div>;
 }

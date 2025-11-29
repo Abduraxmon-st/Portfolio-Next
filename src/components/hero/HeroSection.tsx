@@ -8,8 +8,8 @@ import { ContactButton } from "../button/ContactButton";
 export const HeroSection = () => {
   const { setHovered } = useCursor();
   return (
-    <div className="flex mt-10 xl:mt-20 items-center justify-between xl:pr-10">
-      <div className=" max-w-[53%] xl:max-w-[45%]">
+    <div className="flex flex-col nc1:flex-row gap-20 mc:gap-0 mt-10 xl:mt-20 mc:items-center justify-between xl:pr-10">
+      <div className="mc:max-w-[53%] xl:max-w-[45%]">
         <PrimaryBadge
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}>
@@ -42,7 +42,7 @@ export const HeroSection = () => {
           <ContactButton />
         </a>
       </div>
-      <div className="overflow-hidden w-full max-w-80 xl:max-w-100 h-100 xl:h-120 border-2 border-borderColor rounded-[50px] rounded-tl-[100px] rounded-br-[100px] xl:rounded-[80px] xl:rounded-tl-[160px] xl:rounded-br-[160px]">
+      <div className="overflow-hidden w-full mc:max-w-80 xl:max-w-100 h-120 mc:h-100 xl:h-120 border-2 border-borderColor rounded-[50px] rounded-tl-[100px] rounded-br-[100px] xl:rounded-[80px] xl:rounded-tl-[160px] xl:rounded-br-[160px]">
         <Image src={logoBg} alt="logo" width={100} height={100} loading="lazy" className="w-full h-full object-cover hover:scale-106 transition-transform duration-500" />
       </div>
     </div>

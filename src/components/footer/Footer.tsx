@@ -5,10 +5,10 @@ export const Footer = () => {
   return (
     <footer className="mt-26 xl:mt-41">
       <h2 className="main-title text-center">Get In <span className="text-thirtyColor">Touch</span></h2>
-      <div className="flex items-center gap-10 xl:gap-20 mt-10">
+      <div className="flex flex-col nc1:flex-row nc1:items-center gap-10 xl:gap-20 mt-10">
         <ContactForm />
-        <div className="border-r border-borderColor/60 w-1 h-70" />
-        <div className="w-[46%]">
+        <div className="border-t nc1:border-r border-borderColor/60 h-1 w-full nc1:w-1 nc1:h-70" />
+        <div className="nc1:w-[46%]">
           <h3 className="text-xl sm:text-2xl font-light text-white/90 mb-4 sm:mb-6">Contact Information</h3>
           <div className="space-y-4 xl:space-y-6">
             <a style={{ cursor: "none" }} target="_blank" href="mailto:tojixojayevabduraxmon@gmail.com" className="flex items-start gap-3 sm:gap-4 w-full group">

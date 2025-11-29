@@ -76,7 +76,7 @@ export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean
   return (
     <div
       id="draggable-navbar"
-      className={`fixed z-49 overflow-hidden top-5 left-1/2 max-w-[450px] -translate-x-1/2 w-full flex items-center justify-between py-3 xl:py-4 px-5 xl:px-6 border border-borderColor rounded-[14px] xl:rounded-2xl bg-black/60 navbar-shadow transition-all ease-in-out select-none backdrop-blur-xs ${visible ? "translate-y-0 duration-500" : onDrag ? "" : "-translate-y-[200%] duration-200"}`}>
+      className={`fixed z-49 overflow-hidden sm:top-5 left-1/2 max-w-[450px] -translate-x-1/2 w-[92%] xl:w-full flex items-center justify-between py-3 xl:py-4 px-5 xl:px-6 border border-borderColor rounded-[14px] xl:rounded-2xl bg-black/60 navbar-shadow transition-all ease-in-out select-none backdrop-blur-xs ${visible ? "translate-y-0 duration-500" : onDrag ? "" : "-translate-y-[200%] duration-200"}`}>
       {
         isHome ? (
           <Logo />

@@ -12,6 +12,7 @@
   --color-descColor: #BEC1DD;
   --color-borderColor: #cbacf924;
   --color-mainEasierColor: #000738;
+  --breakpoint-nc1: 760px;
   --breakpoint-mc: 860px;
   --font-poppins: var(--font-poppins);
   --font-inter: var(--font-inter);
@@ -133,7 +134,7 @@
   }
 
   .main-title {
-    @apply mc:text-[40px] xl:text-[54px] font-light tracking-wider leading-[120%]
+    @apply text-[40px] xl:text-[54px] font-light tracking-wider leading-[120%]
   }
 }
 

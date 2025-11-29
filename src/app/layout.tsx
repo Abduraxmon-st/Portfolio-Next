@@ -42,8 +42,8 @@ export default function RootLayout({
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
         style={{ cursor: "none", overflow: "unset" }}
       >
-        <Image loading="eager" src={lights} alt="lights" className="absolute w-[40%]" />
-        <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-[40%]" />
+        <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block nc1:absolute w-[40%]" />
+        <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%]" />
         <CursorProvider>
           <Tracker />
           <Container>
@@ -53,7 +53,7 @@ export default function RootLayout({
           <Container className="relative">
             <Footer />
           </Container>
-          <div className="border-t border-borderColor py-7 xl:py-9 mt-20">
+          <div className="border-t border-borderColor py-7 xl:py-9 mt-10 nc1:mt-20">
             <p className="text-xs xl:text-base text-center text-descColor/50">© 2025 Abduraxmon Tojixo'jayev. All rights reserved.</p>
           </div>
           <ToTopButton />

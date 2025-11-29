@@ -78,7 +78,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="w-1/2 xl:w-[40%] h-max">
+    <div className="nc1:w-1/2 xl:w-[40%] h-max">
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
