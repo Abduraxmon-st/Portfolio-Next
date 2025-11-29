@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge"
 import { ProjectSwiper } from "../swiper"
 import { projects } from "@/src/data/projects"
 import { slugify } from "@/src/hooks/useSlugify"
+import { ExternalLink, Link, Share } from "lucide-react"
 export const ProjectsSection = ({ page, button }: { page: boolean, button: boolean }) => {
 
   const isFilteredData = page ? projects
@@ -17,10 +18,14 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
       <h2 className={`text-[34px] nc1:text-[40px] xl:text-[54px] main-title  ${page ? "hidden" : ""}`}>Featured Projects</h2>
       <div className="mt-10 flex flex-col gap-20 nc1:gap-0">
         {isFilteredData?.map((item, i) => (
-          <div key={i}>
+          <div key={i} className="relative z-3">
+            <a aria-hidden href={`/portfolio/${slugify(item.title)}`} className="nc1:hidden absolute w-full h-full top-0 left-0 z-1" />
             <div className="grid grid-cols-1 nc1:grid-cols-2 gap-7 xl:gap-25 relative">
+              <a href={`/portfolio/${slugify(item.title)}`} className="nc1:hidden absolute top-2 right-2 z-2 bg-mainEasierColor p-2 rounded-full">
+                <ExternalLink size={18} className="text-cyan-400" />
+              </a>
               <div className="hidden xl:absolute left-1/2 h-68 xl:h-90 w-px bg-mainColor bg-[linear-gradient(0deg,rgba(0,0,0,1)_-50%,rgba(190,193,221,0.1)_50%,rgba(0,0,0,1)_150%)]" />
-              <div className={`${i % 2 === 0 ? "nc1:col-start-2 nc1:row-start-1" : "nc1:col-start-1"} bg-gray-800 nc1:h-68 xl:h-90 rounded-2xl xl:rounded-[20px] overflow-hidden`}>
+              <div className={`${i % 2 === 0 ? "nc1:col-start-2 nc1:row-start-1" : "nc1:col-start-1"} bg-gray-800 nc1:h-68 xl:h-90 rounded-[20px] nc1:rounded-2xl xl:rounded-[20px] overflow-hidden`}>
                 <ProjectSwiper data={item.images} />
               </div>
               <div className={`${i % 2 === 0 ? "nc1:col-start-1" : "nc1:col-start-2 nc1:row-start-1"} flex flex-col space-y-4 xl:space-y-6 xl:p-5 pl-0! pb-0!`}>
@@ -37,7 +42,7 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
                 <a
                   style={{ cursor: "none" }}
                   href={`/portfolio/${slugify(item.title)}`}
-                  className="w-max mt-auto">
+                  className="w-max mt-auto hidden nc1:block">
                   <ContactButton>
                     View More
                   </ContactButton>
