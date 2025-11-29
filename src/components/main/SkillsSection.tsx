@@ -36,7 +36,7 @@ export const SkillsSection = () => {
     <div className="mt-30 xl:mt-45">
       <h2 className="main-title">Skills & Technologies</h2>
       <div className="grid nc1:grid-cols-2 mt-10">
-        <div className="border-b nc1:border-r border-thirtyColor/50 pb-10 nc1:pr-5 xl:pr-20">
+        <div className="border-b nc1:border-b-0 nc1:border-r border-thirtyColor/50 pb-10 nc1:pb-0 nc1:pr-5 xl:pr-20">
           <h3 className="flex items-center gap-2.5 mb-5 text-2xl font-light">
             <Paintbrush size={24} className="text-thirtyColor" />
             Frontend
@@ -56,7 +56,7 @@ export const SkillsSection = () => {
             }
           </div>
         </div>
-        <div className="border-t nc1:border-l border-thirtyColor/50 pt-9 nc1:pl-7 xl:pl-25">
+        <div className="border-t nc1:border-t-0 nc1:border-l border-thirtyColor/50 pt-9 nc1:pt-0 nc1:pl-7 xl:pl-25">
           <h3 className="flex items-center gap-2.5 mb-5 text-2xl font-light">
             <Wrench size={24} className="text-thirtyColor" />
             Tools & Others
