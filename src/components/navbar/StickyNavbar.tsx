@@ -72,7 +72,13 @@ export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean
       document.removeEventListener("touchmove", onDrag);
     };
   }, []);
-
+  useEffect(() => {
+    if (onDrag) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [onDrag]);
   return (
     <div
       id="draggable-navbar"
