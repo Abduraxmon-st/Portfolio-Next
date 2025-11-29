@@ -20,7 +20,7 @@ export const HeroSection = () => {
           <h1 className="main-title font-light tracking-wider leading-[100%] text-cyan-400">Abduraxmon</h1>
         </div>
         <div className="w-[50%] h-0.5 xl:h-1 my-3 xl:my-5 bg-linear-to-r from-cyan-400 to-transparent"></div>
-        <p className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
+        <p className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br className="hidden nc1:block" /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
         <div className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">
           You can also check my {" "}
           <a
