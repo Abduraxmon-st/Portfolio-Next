@@ -36,7 +36,7 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
                 </div>
                 <div className="flex flex-wrap gap-2 xl:gap-3 mb-4!">
                   {item.technologies.map((item, i) => (
-                    <Badge key={i}>{item}</Badge>
+                    <Badge key={i}>{item.title}</Badge>
                   ))}
                 </div>
                 <a
@@ -49,7 +49,7 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
                 </a>
               </div>
             </div>
-            <div className={`${isFilteredData.length - 1 === i && "hidden"} hidden nc1:flex items-center justify-center py-7 xl:py-5 relative`}>
+            <div className={`${isFilteredData.length - 1 === i && "hidden!"} hidden nc1:flex items-center justify-center py-7 xl:py-5 relative`}>
               <div className="relative opacity-16 [&_svg]:size-3 xl:[&_svg]:size-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m12 6.7l1.45 3.85L17.3 12l-3.85 1.45L12 17.3l-1.45-3.85L6.7 12l3.85-1.45zM12 1L9 9l-8 3l8 3l3 8l3-8l8-3l-8-3z" /></svg>
               </div>

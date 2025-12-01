@@ -134,7 +134,7 @@
   }
 
   .main-title {
-    @apply text-[40px] xl:text-[54px] font-light tracking-wider leading-[120%]
+    @apply text-[30px] sm:text-[40px] xl:text-[54px] font-light tracking-wider leading-[120%]
   }
 }
 

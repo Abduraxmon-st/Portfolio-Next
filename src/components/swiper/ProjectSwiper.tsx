@@ -17,8 +17,8 @@ export const ProjectSwiper = ({ data }: { data: string[] }) => {
     >
       {
         data.map((item, i) => (
-          <SwiperSlide key={i}>
-            <img loading='lazy' src={item ?? ""} alt="project image" />
+          <SwiperSlide key={i} className='aspect-video'>
+            <img src={item ?? ""} alt="project image" />
           </SwiperSlide>
         ))
       }
