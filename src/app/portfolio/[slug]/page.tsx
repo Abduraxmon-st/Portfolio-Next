@@ -3,6 +3,7 @@ import { Container } from "@/src/components/container";
 import { projects } from "@/src/data/projects";
 import { slugify } from "@/src/hooks/useSlugify";
 import { ExternalLink, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -28,8 +29,8 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             Go visit {project?.title} <ExternalLink size={16} />
           </a>
         </p>
-        <div className="xl:aspect-video rounded-2xl overflow-hidden">
-          <img src={project?.images[0]} alt="project image" className="object-cover w-full h-full nc1:h-60 xl:h-full" />
+        <div className="aspect-video rounded-2xl overflow-hidden">
+          <Image width={100} height={100} src={project?.images[0] ?? ""} alt="project image" className="object-cover w-full h-full nc1:h-60 xl:h-full" />
         </div>
       </div>
 

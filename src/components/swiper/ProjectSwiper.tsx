@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -18,7 +19,7 @@ export const ProjectSwiper = ({ data }: { data: string[] }) => {
       {
         data.map((item, i) => (
           <SwiperSlide key={i} className='aspect-video'>
-            <img src={item ?? ""} alt="project image" />
+            <Image width={100} height={100} src={item ?? ""} loading='lazy' alt="project image" className='w-full h-full'/>
           </SwiperSlide>
         ))
       }
