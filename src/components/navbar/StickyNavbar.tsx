@@ -62,7 +62,7 @@ export const StickyNavbar = ({
   }, []);
 
   return (
-    <div ref={container} className="fixed max-w-[450px] w-full sm:w-[92%] xl:w-full top-0 left-1/2 -translate-x-1/2 z-10 px-4 sm:px-0" >
+    <div ref={container} className="fixed max-w-[450px] w-full sm:w-[92%] xl:w-full top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 px-4 sm:px-0" >
       <div data-swapy-slot="navbar" className="mx-auto w-full mt-4 sm:mt-5">
         <div
           ref={swapyy}
