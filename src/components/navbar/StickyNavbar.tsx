@@ -1,109 +1,76 @@
-import { ProgressBar } from "../progress-bar"
+"use client";
+
+import { ProgressBar } from "../progress-bar";
 import { Logo } from "../logotip";
-import { useEffect, useState } from "react";
 import NavbarLink from "../link/NavbarLink";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { createSwapy } from 'swapy'
 
-export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean, isHome: boolean, setHovered: (value: boolean) => void }) => {
-  const [onDrag, setOnDrag] = useState(false)
+export const StickyNavbar = ({
+  visible,
+  isHome,
+  setHovered,
+}: {
+  visible: boolean;
+  isHome: boolean;
+  setHovered: (value: boolean) => void;
+}) => {
+  const swapyy = useRef(null)
+  const container = useRef(null)
+
   useEffect(() => {
-    const navbar = document.getElementById("draggable-navbar") as HTMLElement;
-    if (!navbar) return;
+    // If container element is loaded
+    if (container.current) {
+      // @ts-ignore
 
-    let startX: number, startY: number;
-    let currentX = 0, currentY = 0;
-    let dragging = false;
+      swapyy.current = createSwapy(container.current)
 
-    const startDrag = (e: any) => {
-      dragging = true;
-      navbar.classList.add("dragging");
+      // Your event listeners
+      // @ts-ignore
 
-      const point = e.touches ? e.touches[0] : e;
-
-      startX = point.clientX - currentX;
-      startY = point.clientY - currentY;
-
-      document.addEventListener("mousemove", onDrag);
-      document.addEventListener("touchmove", onDrag);
-    };
-
-    const onDrag = (e: any) => {
-      if (!dragging) return;
-      setOnDrag(true)
-
-      const point = e.touches ? e.touches[0] : e;
-
-      currentX = point.clientX - startX;
-      currentY = point.clientY - startY;
-
-      navbar.style.transition = "none";
-      navbar.style.transform = `translate(0, 0) translate(${currentX}px, ${currentY}px)`;
-    };
-
-    const stopDrag = () => {
-      if (!dragging) return;
-      dragging = false;
-
-      navbar.classList.remove("dragging");
-
-      navbar.style.transition = "transform 1s cubic-bezier(.25,.8,.25,1)";
-      navbar.style.transform = "translate(0, 0) translate(0px, 0px)";
-
-      currentX = 0;
-      currentY = 0;
-
-      document.removeEventListener("mousemove", onDrag);
-      document.removeEventListener("touchmove", onDrag);
-      setOnDrag(false)
-    };
-
-    navbar.addEventListener("mousedown", startDrag);
-    navbar.addEventListener("touchstart", startDrag);
-
-    document.addEventListener("mouseup", stopDrag);
-    document.addEventListener("touchend", stopDrag);
+      swapyy?.current?.onSwap((event) => {
+        console.log('swap', event);
+      })
+    }
 
     return () => {
-      navbar.removeEventListener("mousedown", startDrag);
-      navbar.removeEventListener("touchstart", startDrag);
-      document.removeEventListener("mouseup", stopDrag);
-      document.removeEventListener("touchend", stopDrag);
-      document.removeEventListener("mousemove", onDrag);
-      document.removeEventListener("touchmove", onDrag);
-    };
-  }, []);
-  useEffect(() => {
-    if (onDrag) {
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = "5px";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "0px";
+      // @ts-ignore
+
+      // Destroy the swapy instance on component destroy
+      swapy?.current?.destroy()
     }
-  }, [onDrag]);
+  }, [])
+
   return (
-    <div
-      id="draggable-navbar"
-      className={`fixed z-49 overflow-hidden sm:top-5 left-1/2 max-w-[450px] -translate-x-1/2 w-[92%] xl:w-full flex items-center justify-between py-3 xl:py-4 px-5 xl:px-6 border border-borderColor rounded-[14px] xl:rounded-2xl bg-black/60 navbar-shadow transition-all ease-in-out select-none backdrop-blur-[2px] ${visible ? "translate-y-0 duration-500" : onDrag ? "" : "-translate-y-[200%] duration-200"}`}>
-      {
-        isHome ? (
-          <Logo />
-        ) : (
-          <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-          >
-            <Link style={{ cursor: "none" }} href="/home">
-              <Logo />
-            </Link>
+    <div ref={container} className="fixed max-w-[450px] w-[92%] xl:w-full top-0 left-1/2 -translate-x-1/2 z-10" >
+      <div data-swapy-slot="navbar" className="mx-auto max-w-[450px] w-[92%] xl:w-full mt-4 sm:mt-5">
+        <div
+          ref={swapyy}
+          data-swapy-item="navbar"
+          className={`overflow-hidden max-w-[450px] w-[92%] xl:w-full flex items-center justify-between py-3 xl:py-4 px-5 xl:px-6 border border-borderColor rounded-[14px] xl:rounded-2xl bg-black/60 navbar-shadow select-none backdrop-blur-[2px] ${visible ? "mt-0 " : "-mt-30 "} `}
+        >
+          {isHome ? (
+            <Logo />
+          ) : (
+            <div
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <Link style={{ cursor: "none" }} href="/home">
+                <Logo />
+              </Link>
+            </div>
+          )}
+
+          <div className="flex items-center justify-center gap-4 xl:gap-5">
+            <NavbarLink href="/home">Home</NavbarLink>
+            <NavbarLink href="/portfolio">Portfolio</NavbarLink>
           </div>
-        )
-      }
-      <div className="flex items-center justify-center gap-4 xl:gap-5">
-        <NavbarLink href="/home" children={"Home"} />
-        <NavbarLink href="/portfolio" children={"Portfolio"} />
+
+          <ProgressBar />
+        </div>
       </div>
-      <ProgressBar />
     </div>
-  )
-}
+  );
+};

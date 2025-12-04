@@ -9,7 +9,6 @@ import { Container } from "../components/container";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 import { ToTopButton } from "../components/to-top/ToTopButton";
-import DragNavbar from "../components/navbar/DragNavbar";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -42,7 +41,6 @@ export default function RootLayout({
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
         style={{ cursor: "none", overflow: "unset" }}
       >
-        <DragNavbar/>
         <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
         <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />
         <CursorProvider>
