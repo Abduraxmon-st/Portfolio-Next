@@ -9,17 +9,23 @@ const DragNavbar = () => {
   useEffect(() => {
     // If container element is loaded
     if (container.current) {
+          // @ts-ignore
+
       swapy.current = createSwapy(container.current)
 
       // Your event listeners
-      swapy.current.onSwap((event) => {
+          // @ts-ignore
+
+      swapy?.current?.onSwap((event) => {
         console.log('swap', event);
       })
     }
 
     return () => {
+          // @ts-ignore
+
       // Destroy the swapy instance on component destroy
-      swapy.current?.destroy()
+      swapy?.current?.destroy()
     }
   }, [])
 
