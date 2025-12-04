@@ -30,17 +30,17 @@ const DragNavbar = () => {
   }, [])
 
   return (
-    <div ref={container} className='fixed w-screen h-screen top-0 left-0 bg-white/15'>
+    <div ref={container} className='fixed w-screen h-screen z-999 top-0 left-0 bg-white/15'>
 
       <div data-swapy-slot="a">
         <div data-swapy-item="a">
-          <div className='bg-red-500 w-10 h-10'>A</div>
+          <div className='bg-red-500 w-50 h-50'>A</div>
         </div>
       </div>
 
       <div data-swapy-slot="b">
         <div data-swapy-item="b">
-          <div>B</div>
+          <div className='bg-red-500 w-50 h-50'>B</div>
         </div>
       </div>
 
