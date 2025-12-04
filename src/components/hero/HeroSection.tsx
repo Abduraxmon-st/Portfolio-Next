@@ -4,6 +4,9 @@ import { PrimaryBadge } from "../badge"
 import Image from "next/image";
 import { logoBg } from "@/src/assets/images";
 import { ContactButton } from "../button/ContactButton";
+import dynamic from 'next/dynamic'
+
+const GithubLink = dynamic(() => import('../link/GithubLink'), { ssr: false })
 
 export const HeroSection = () => {
   const { setHovered } = useCursor();
@@ -23,12 +26,7 @@ export const HeroSection = () => {
         <p className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br className="hidden nc1:block" /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
         <div className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">
           You can also check my {" "}
-          <a
-            style={{ cursor: "none" }}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            href="https://github.com/Abduraxmon-st"
-            className="text-thirtyColor relative group">GitHub <div className=" absolute w-[0%] group-hover:w-[90%] h-px left-1/2 -translate-x-[55%] -bottom-px bg-thirtyColor transition-all" /></a> account.
+          <GithubLink setHovered={setHovered} />{" "}
         </div>
         <a
           className="w-fit flex mt-7.5 xl:mt-5"

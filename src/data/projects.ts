@@ -62,7 +62,7 @@ export const projects = [
     desc: "A visually appealing blog platform for food enthusiasts, featuring recipes, ratings, and user comments.",
     technologies: [
       { title: "Next.js", path: "next" },
-      { title: "Markdown", path: "markdown" },
+      { title: "Shadcn.ui", path: "shadcn" },
       { title: "TailwindCSS", path: "tailwind" }
     ],
     images: [

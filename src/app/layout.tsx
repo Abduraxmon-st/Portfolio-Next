@@ -9,7 +9,6 @@ import { Container } from "../components/container";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 import { ToTopButton } from "../components/to-top/ToTopButton";
-import Circles from "./loading";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],

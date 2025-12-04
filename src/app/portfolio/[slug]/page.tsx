@@ -2,7 +2,7 @@ import { TechnologyCard } from "@/src/components/card/TechnologyCard";
 import { Container } from "@/src/components/container";
 import { projects } from "@/src/data/projects";
 import { slugify } from "@/src/hooks/useSlugify";
-import { ExternalLink, Mail } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,12 +23,14 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
       </div>
 
       <div className="grid nc1:grid-cols-2 gap-5 nc1:gap-10 xl:gap-20">
-        <p className="row-2 nc1:row-auto">
+        <div className="row-2 nc1:row-auto">
           {project?.desc}
-          <a style={{ cursor: "none" }} href="https://google.com" target="_blank" className="flex gap-1 mt-2.5 items-center text-thirtyColor font-medium hover:underline underline-offset-3">
-            Go visit {project?.title} <ExternalLink size={16} />
+          <a style={{ cursor: "none" }} href="https://google.com" target="_blank" className="relative w-max flex gap-1 mt-2.5 items-center text-thirtyColor font-medium  group">
+            Go visit {project?.title}
+            <ExternalLink size={16} />
+            <div className=" absolute w-[0%] group-hover:w-full h-px left-1/2 -translate-x-[50%] bottom-0 bg-thirtyColor transition-all" />
           </a>
-        </p>
+        </div>
         <div className="aspect-video rounded-2xl overflow-hidden">
           <Image width={100} height={100} src={project?.images[0] ?? ""} alt="project image" className="object-cover w-full h-full nc1:h-60 xl:h-full" />
         </div>

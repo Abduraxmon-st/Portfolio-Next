@@ -29,6 +29,7 @@ export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean
 
     const onDrag = (e: any) => {
       if (!dragging) return;
+      setOnDrag(true)
 
       const point = e.touches ? e.touches[0] : e;
 
@@ -37,7 +38,6 @@ export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean
 
       navbar.style.transition = "none";
       navbar.style.transform = `translate(0, 0) translate(${currentX}px, ${currentY}px)`;
-      setOnDrag(true)
     };
 
     const stopDrag = () => {
@@ -75,8 +75,10 @@ export const StickyNavbar = ({ visible, isHome, setHovered }: { visible: boolean
   useEffect(() => {
     if (onDrag) {
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = "5px";
     } else {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "0px";
     }
   }, [onDrag]);
   return (
