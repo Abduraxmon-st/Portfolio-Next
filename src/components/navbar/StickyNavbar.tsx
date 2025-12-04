@@ -28,7 +28,7 @@ export const StickyNavbar = ({
       })
 
       swapy?.onSwapStart(() => {
-        document.body.style.overflow = "unset";
+        document.body.style.overflow = "hidden";
       })
       swapy?.onSwapEnd(() => {
         document.body.style.overflow = "unset";
