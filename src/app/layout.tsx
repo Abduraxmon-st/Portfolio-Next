@@ -39,7 +39,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
-        style={{ cursor: "none" }}
+        style={{ cursor: "none", overflow: "unset" }}
       >
         <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
         <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />

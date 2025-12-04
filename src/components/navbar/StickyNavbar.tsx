@@ -20,30 +20,30 @@ export const StickyNavbar = ({
   const container = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (container.current) {
-      swapy.current = createSwapy(container.current)
+    if (container) {
+      // @ts-ignore
 
-      swapy?.current.onSwapStart(() => {
-        document.body.style.overflow = "hidden";
+      const swapy = createSwapy(container.current, {
+        animation: 'spring'
       })
-      swapy?.current.onSwapEnd(() => {
-        document.body.style.overflow = "";
+
+      swapy?.onSwapStart(() => {
+        document.body.style.overflow = "unset";
       })
-      swapy?.current.onBeforeSwap((event: any) => {
-        console.log(event)
-        return true
+      swapy?.onSwapEnd(() => {
+        document.body.style.overflow = "unset";
       })
     }
     return () => {
       // @ts-ignore
       swapy.current?.destroy?.();
       // Scrollni tiklash
-      document.body.style.overflow = "";
+      document.body.style.overflow = "unset";
     };
   }, []);
 
   return (
-    <div ref={container} className="fixed max-w-[450px] h-screen w-full sm:w-[92%] xl:w-full top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 px-4 sm:px-0" >
+    <div ref={container} className="fixed max-w-[450px] w-full sm:w-[92%] xl:w-full top-0 left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 px-4 sm:px-0" >
       <div data-swapy-slot="navbar" className="mx-auto w-full mt-4 sm:mt-5">
         <div
           ref={swapy}
