@@ -1,11 +1,34 @@
 "use client"
 import { ContactButton } from "@/src/components/button/ContactButton"
 import { Container } from "@/src/components/container"
+import LoadingOpacity from "@/src/components/loading/LoadingOpacity"
+import Circles from "@/src/components/loading/PageLoading"
 import { ProjectsSection } from "@/src/components/main/ProjectsSection"
+import { useEffect, useState } from "react"
 
 const ProjectsPage = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // agar sahifa allaqachon yuklangan bo‘lsa
+    if (document.readyState === "complete") {
+      setLoaded(true);
+      return;
+    }
+
+    // aks holda load eventini kutadi
+    const handleLoad = () => setLoaded(true);
+    window.addEventListener("load", handleLoad);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
+  if (!loaded) {
+    return <Circles />;
+  }
   return (
     <Container>
+      <LoadingOpacity loaded={loaded} />
       <div className="flex flex-col gap-5 xl:gap-7.5 text-center nc1:pb-15 xl:pb-30 mt-5">
         <h2 className="main-title mc:text-[50px] xl:text-[60px]">My <span className="text-cyan-400">Portfolio</span></h2>
         <div className="w-full h-px bg-mainColor bg-[linear-gradient(270deg,rgba(0,0,0,1)_-50%,rgba(190,193,221,0.1)_50%,rgba(0,0,0,1)_150%)]" />

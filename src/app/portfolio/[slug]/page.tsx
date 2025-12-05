@@ -1,16 +1,38 @@
+"use client";
 import { TechnologyCard } from "@/src/components/card/TechnologyCard";
 import { Container } from "@/src/components/container";
 import { projects } from "@/src/data/projects";
 import { slugify } from "@/src/hooks/useSlugify";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import Circles from "@/src/components/loading/PageLoading";
+import LoadingOpacity from "@/src/components/loading/LoadingOpacity";
 
-export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function PortfolioDetailPage() {
+  const params = useParams();
+  const { slug } = params;
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setLoaded(true);
+      return;
+    }
+    const handleLoad = () => setLoaded(true);
+    window.addEventListener("load", handleLoad);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
   const title = slug ? slug : ""
   const project = projects.find((item) => slugify(item.title) === title)
+  if (!loaded) {
+    return <Circles />;
+  }
   return (
     <Container className="mt-10">
+      <LoadingOpacity loaded={loaded} />
       <h2 className="main-title text-center">{project?.title}</h2>
       <div className="mt-10 mb-5 text-xs text-descColor/30 flex items-center justify-end gap-1">
         <a style={{ cursor: "none" }} href="/portfolio" className="hover:underline underline-offset-3">

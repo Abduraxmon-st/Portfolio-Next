@@ -1,7 +1,7 @@
 import React from "react";
 
 const COUNT = 6;
-const SIZE = 30; // vh
+const SIZE = 25; // vh
 const SPEED = 5; // s
 const COLOR = "#CBACF9";
 
@@ -16,7 +16,7 @@ const Circles: React.FC = () => {
         position: "fixed" as React.CSSProperties["position"],
         top: 0,
         left: 0,
-        zIndex: 99,
+        zIndex: 100,
         margin: 0,
         padding: 0,
         width: "99.9vw",

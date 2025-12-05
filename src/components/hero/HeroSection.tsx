@@ -5,29 +5,45 @@ import Image from "next/image";
 import { logoBg } from "@/src/assets/images";
 import { ContactButton } from "../button/ContactButton";
 import dynamic from 'next/dynamic'
-
+import PageLoadAnimation from "../onload-animation/onLoadAnimation";
+import { useEffect, useState } from "react";
 const GithubLink = dynamic(() => import('../link/GithubLink'), { ssr: false })
 
 export const HeroSection = () => {
   const { setHovered } = useCursor();
+  const [line, setLine] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLine(true);
+    }, 1000);
+  }, []);
   return (
     <div className="flex flex-col nc1:flex-row gap-20 mc:gap-0 mt-10 xl:mt-20 mc:items-center justify-between xl:pr-10">
       <div className="mc:max-w-[53%] xl:max-w-[45%]">
-        <PrimaryBadge
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}>
-          Frontend Developer
-        </PrimaryBadge>
+        <PageLoadAnimation duration={0.3} translateX={-50}>
+          <PrimaryBadge
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}>
+            Frontend Developer
+          </PrimaryBadge>
+        </PageLoadAnimation>
+
         <div className="mt-2.5 xl:mt-5">
-          <h2 className="main-title flex">Tojixo<div className="text-[35px] xl:text-[50px] tracking-normal">'</div>jayev</h2>
-          <h1 className="main-title font-light tracking-wider leading-[100%] text-cyan-400">Abduraxmon</h1>
+          <PageLoadAnimation duration={0.8} translateX={-50}>
+            <h2 className="main-title flex">Tojixo<div className="text-[20px] sm:text-[35px] xl:text-[50px] tracking-normal">'</div>jayev</h2>
+          </PageLoadAnimation>
+          <PageLoadAnimation duration={1.2} translateX={-50}>
+            <h1 className="main-title font-light tracking-wider leading-[100%] text-cyan-400">Abduraxmon</h1>
+          </PageLoadAnimation>
         </div>
-        <div className="w-[50%] h-0.5 xl:h-1 my-3 xl:my-5 bg-linear-to-r from-cyan-400 to-transparent"></div>
-        <p className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br className="hidden nc1:block" /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
-        <div className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">
-          You can also check my {" "}
-          <GithubLink setHovered={setHovered} />{" "}
-        </div>
+        <div className={`${line ? "w-[50%]" : "w-[0%]"} h-0.5 xl:h-1 my-3 xl:my-5 bg-linear-to-r from-cyan-400 to-transparent transition-all duration-800`}></div>
+        <PageLoadAnimation duration={1} translateX={0}>
+          <p className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">Building reliable and intuitive digital experiences using <br className="hidden nc1:block" /> <span className="text-thirtyColor">React</span> and <span className="text-thirtyColor">Next.js</span>. Passionate about writing clean code and improving frontend architecture.</p>
+          <div className="text-[15px] nc1:text-base xl:text-[17px] tracking-wide text-white/70">
+            You can also check my {" "}
+            <GithubLink setHovered={setHovered} />{" "}
+          </div>
+        </PageLoadAnimation>
         <a
           className="w-fit flex mt-7.5 xl:mt-5"
           href="#contact-me"
@@ -37,12 +53,16 @@ export const HeroSection = () => {
               behavior: "smooth"
             });
           }}>
-          <ContactButton />
+          <PageLoadAnimation duration={1.5} translateX={100}>
+            <ContactButton />
+          </PageLoadAnimation>
         </a>
       </div>
-      <div className="overflow-hidden w-full mc:max-w-80 xl:max-w-100 h-120 mc:h-100 xl:h-120 border-2 border-borderColor rounded-[50px] rounded-tl-[100px] rounded-br-[100px] xl:rounded-[80px] xl:rounded-tl-[160px] xl:rounded-br-[160px]">
-        <Image src={logoBg} alt="logo" width={100} height={100} loading="lazy" className="w-full h-full object-cover hover:scale-106 transition-transform duration-500" />
-      </div>
-    </div>
+      <PageLoadAnimation duration={2} translateY={200}>
+        <div className="overflow-hidden w-full mc:max-w-80 xl:max-w-100 h-120 mc:h-100 xl:h-120 border-2 border-borderColor rounded-[50px] rounded-tl-[100px] rounded-br-[100px] xl:rounded-[80px] xl:rounded-tl-[160px] xl:rounded-br-[160px]">
+          <Image src={logoBg} alt="logo" width={100} height={100} loading="lazy" className="w-full h-full object-cover hover:scale-106 transition-transform duration-500" />
+        </div>
+      </PageLoadAnimation>
+    </div >
   )
 }

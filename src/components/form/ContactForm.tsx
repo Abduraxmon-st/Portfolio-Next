@@ -12,6 +12,7 @@ import AnimatedCheck from "@/src/assets/icons/checkIcon"
 import AnimatedX from "@/src/assets/icons/xIcon"
 import { useRef, useState } from "react"
 import FloatingTextarea from "../input/FormTextArea"
+import OnViewAnimation from "../onload-animation/onviewAnimation"
 const contactFormSchema = z.object({
   name: z.string().min(3, "Name is required").max(100),
   contact: z.string().min(5, "Email or Phone number is required").max(100)
@@ -79,99 +80,102 @@ export const ContactForm = () => {
 
   return (
     <div className="nc1:w-1/2 xl:w-[40%] h-max">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        noValidate
-        id="contact-me"
-        className="flex flex-col gap-5" >
-        <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          className="relative h-fit">
-          {/* Label */}
-          <label
-            style={{ cursor: "none" }}
-            className={`
+      <OnViewAnimation duration={1} translateY={50}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          id="contact-me"
+          className="flex flex-col gap-5" >
+          <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            className="relative h-fit">
+            {/* Label */}
+            <label
+              style={{ cursor: "none" }}
+              className={`
           absolute text-descColor/50 pointer-events-none transition-all duration-200
           ${isFocused || isFilled
-                ? "-top-5 left-0 text-xs"
-                : "top-1/2 -translate-y-1/2 left-4 text-sm"
-              }
+                  ? "-top-5 left-0 text-xs"
+                  : "top-1/2 -translate-y-1/2 left-4 text-sm"
+                }
           ${errors.name ? "text-red-500/70" : ""}
         `}
-          >
-            {errors.name ? errors.name.message : "Your Name"}
-          </label>
+            >
+              {errors.name ? errors.name.message : "Your Name"}
+            </label>
 
-          {/* Input */}
-          <Input
-            {...nameRegister}
-            ref={(el) => {
-              formRef(el);
-              nameRef.current = el
-            }}
-            onFocus={() => setIsFocused(true)}
-            onBlur={(e) => {
-              setIsFocused(false);
-              nameRegister.onBlur(e);
-            }}
-            type="text"
-            style={{ cursor: "none" }}
-            className={`
+            {/* Input */}
+            <Input
+              {...nameRegister}
+              ref={(el) => {
+                formRef(el);
+                nameRef.current = el
+              }}
+              onFocus={() => setIsFocused(true)}
+              onBlur={(e) => {
+                setIsFocused(false);
+                nameRegister.onBlur(e);
+              }}
+              type="text"
+              style={{ cursor: "none" }}
+              className={`
           text-descColor relative z-2
           ${errors.name
-                ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30"
-                : "placeholder:text-transparent"
-              }
+                  ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30"
+                  : "placeholder:text-transparent"
+                }
         `}
-            placeholder=" "
-          />
-        </div>
+              placeholder=" "
+            />
+          </div>
 
-        <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
+          <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
 
-          <PhoneOrEmailInput
-            control={control}
-            {...register("contact")}
-            errors={errors}
-            className={`text-descColor relative z-2 ${errors.contact ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30" : "placeholder:text-descColor/50"}`}
-            placeholder={errors.contact ? `${errors.contact.message}` : "Email or Phone number"} />
-        </div>
-        <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <FloatingTextarea
-            control={control}
-            name="message"
-            error={errors.message}
-          />
-        </div>
-        <Button
-          style={{ cursor: "none" }}
-          type="submit"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          disabled={loading || !!errors.message || !!errors.contact || !!errors.name}
-          className={`h-11.5 gap-3! rounded-[12px] border-gradient hover:scale-103 active:scale-100 duration-300 
+            <PhoneOrEmailInput
+              control={control}
+              {...register("contact")}
+              errors={errors}
+              className={`text-descColor relative z-2 ${errors.contact ? "placeholder:text-red-500/50 border-red-700 ring-3 ring-red-500/30" : "placeholder:text-descColor/50"}`}
+              placeholder={errors.contact ? `${errors.contact.message}` : "Email or Phone number"} />
+          </div>
+          <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <FloatingTextarea
+              control={control}
+              name="message"
+              error={errors.message}
+            />
+          </div>
+          <Button
+            style={{ cursor: "none" }}
+            type="submit"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            disabled={loading || !!errors.message || !!errors.contact || !!errors.name}
+            className={`h-11.5 gap-3! rounded-[12px] border-gradient hover:scale-103 active:scale-100 duration-300 
           ${error ? "text-red-700" : "text-descColor"}`}
-        >
-          {loading ? "Sending"
-            : success ? success
-              : error ? error
-                : "Send me Message"}
-          {loading ?
-            <Loader2 className="size-4.5 -scale-x-100 mt-[3px] animate-spin" />
-            : success ?
-              <AnimatedCheck show />
-              : error ?
-                <AnimatedX show />
-                : <MousePointer2 className="size-4.5 -scale-x-100 mt-[3px]" />}
-        </Button>
-      </form>
+          >
+            {loading ? "Sending"
+              : success ? success
+                : error ? error
+                  : "Send me Message"}
+            {loading ?
+              <Loader2 className="size-4.5 -scale-x-100 mt-[3px] animate-spin" />
+              : success ?
+                <AnimatedCheck show />
+                : error ?
+                  <AnimatedX show />
+                  : <MousePointer2 className="size-4.5 -scale-x-100 mt-[3px]" />}
+          </Button>
+        </form>
+      </OnViewAnimation>
+
     </div>
   )
 }

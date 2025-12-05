@@ -9,6 +9,7 @@ import { Container } from "../components/container";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 import { ToTopButton } from "../components/to-top/ToTopButton";
+import PageLoadAnimation from "../components/onload-animation/onLoadAnimation";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -39,10 +40,13 @@ export default function RootLayout({
       </head>
       <body
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
-        style={{ cursor: "none", overflow: "unset" }}
-      >
-        <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
-        <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />
+        style={{ cursor: "none", overflow: "unset" }}>
+        <PageLoadAnimation duration={1.5} translateY={-250}>
+          <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
+        </PageLoadAnimation>
+        <PageLoadAnimation duration={1.5} translateY={-250}>
+          <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />
+        </PageLoadAnimation>
         <CursorProvider>
           <Tracker />
           <Container>
@@ -52,9 +56,11 @@ export default function RootLayout({
           <Container className="relative">
             <Footer />
           </Container>
-          <div className="border-t border-borderColor py-7 xl:py-9 mt-10 nc1:mt-20">
-            <p className="text-xs xl:text-base text-center text-descColor/50">© 2025 Abduraxmon Tojixo'jayev. All rights reserved.</p>
-          </div>
+          <PageLoadAnimation duration={1.5} translateY={250}>
+            <div className="border-t border-borderColor py-7 xl:py-9 mt-10 nc1:mt-20">
+              <p className="text-xs xl:text-base text-center text-descColor/50">© 2025 Abduraxmon Tojixo'jayev. All rights reserved.</p>
+            </div>
+          </PageLoadAnimation>
           <ToTopButton />
         </CursorProvider>
       </body>
