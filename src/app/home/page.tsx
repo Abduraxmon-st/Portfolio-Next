@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container } from "@/src/components/container";
-import { HeroSection } from "@/src/components/hero";
-import { MainSection } from "@/src/components/main";
-import Circles from "@/src/components/loading/PageLoading";
-import LoadingOpacity from "@/src/components/loading/LoadingOpacity";
+import { Container } from "@/components/container";
+import { HeroSection } from "@/components/hero";
+import { MainSection } from "@/components/main";
+import Circles from "@/components/loading/PageLoading";
+import LoadingOpacity from "@/components/loading/LoadingOpacity";
 
 const HomePage = () => {
   const [loaded, setLoaded] = useState(false);

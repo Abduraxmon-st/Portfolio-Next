@@ -1,267 +1,108 @@
 export const projects = [
   {
     isHome: true,
-    title: "TaskFlow Manager",
-    desc: "A modern task management platform designed to help teams organize, track, and complete tasks efficiently with real-time updates.",
+    title: "UProject",
+    isWorking: false,
+    link: "https://uproject.uz/",
+    privated: false,
+    desc: "UProject is your reliable technology partner, providing modern, stable and fully customized IT solutions. We create CRM systems, e-commerce sites, mobile applications, Telegram bots and other innovative digital products that will grow your business.",
     technologies: [
       { title: "Next.js", path: "next" },
       { title: "TypeScript", path: "typescript" },
-      { title: "Prisma", path: "prisma" }
+      { title: "Tanstack query", path: "tanstack-query" },
+      { title: "Zustand", path: "zustand" },
+      { title: "Zod", path: "zod" },
+      { title: "Tailwind CSS", path: "tailwind" },
+      { title: "Shadcn UI", path: "shadcn-ui" },
     ],
     images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
+      "/uproject/uproject1.jpg",
     ]
   },
-
   {
     isHome: true,
-    title: "EcoShop",
-    desc: "An e-commerce platform focused on eco-friendly products with intuitive search, cart, and checkout features.",
+    title: "Azera",
+    isWorking: false,
+    privated: false,
+    link: "https://azera.uz/",
+    desc: "Azera — your smart marketplace for saving and sharing. Azera connects users and local stores, allowing everyone to sell or buy quality products with ease. Our platform promotes smart shopping, sustainability, and community support — helping you save more, waste less, and make every deal meaningful.",
     technologies: [
       { title: "Next.js", path: "next" },
-      { title: "TailwindCSS", path: "tailwind" },
-      { title: "Stripe", path: "stripe" }
+      { title: "TypeScript", path: "typescript" },
+      { title: "Tanstack query", path: "tanstack-query" },
+      { title: "Zustand", path: "zustand" },
+      { title: "Zod", path: "zod" },
+      { title: "Tailwind CSS", path: "tailwind" },
+      { title: "Shadcn UI", path: "shadcn-ui" },
     ],
     images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
+      "/azera/azera1.jpg",
     ]
   },
-
   {
     isHome: true,
-    title: "Fitness Tracker",
-    desc: "A responsive app for tracking workouts, calories, and progress charts with seamless user experience.",
+    title: "WellmedPharm",
+    isWorking: true,
+    privated: true,
+    link: "#",
+    desc: "Wellmedpharm Telegram bot is a convenient system designed to automate pharmacy operations. The bot allows you to add, edit, and delete (CRUD) products (pharmacies), clinics, doctors, and tour plans. Simplified management through reports, products, and the admin panel.",
     technologies: [
-      { title: "React", path: "react" },
+      { title: "React.js", path: "react" },
       { title: "TypeScript", path: "typescript" },
-      { title: "Chart.js", path: "chartjs" }
+      { title: "Tanstack query", path: "tanstack-query" },
+      { title: "Zustand", path: "zustand" },
+      { title: "Zod", path: "zod" },
     ],
     images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
+      "/pharm/pharm1.jpg",
+      "/pharm/pharm2.jpg",
+      "/pharm/pharm3.jpg",
+      "/pharm/pharm4.jpg",
+      "/pharm/pharm5.jpg",
+      "/pharm/pharm6.jpg",
+      "/pharm/pharm7.jpg",
+      "/pharm/pharm8.jpg",
+      "/pharm/pharm9.jpg",
+      "/pharm/pharm10.jpg",
     ]
   },
-
   {
     isHome: true,
-    title: "Foodie Blog",
-    desc: "A visually appealing blog platform for food enthusiasts, featuring recipes, ratings, and user comments.",
+    title: "Just Robotics",
+    isWorking: true,
+    privated: false,
+    link: "https://just-robotics-five.vercel.app/",
+    desc: "JustRobotics is an educational center that combines technology, art, and learning. We create a supportive environment, apply modern teaching methods, and focus on each student’s personal growth.",
     technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "Shadcn.ui", path: "shadcn" },
-      { title: "TailwindCSS", path: "tailwind" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Travel Planner",
-    desc: "An interactive web app to plan trips, view destinations, and manage itineraries with maps integration.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "Mapbox", path: "mapbox" },
-      { title: "TailwindCSS", path: "tailwind" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Crypto Dashboard",
-    desc: "A real-time dashboard displaying cryptocurrency prices, trends, and portfolio management tools.",
-    technologies: [
-      { title: "React", path: "react" },
+      { title: "React.js", path: "react" },
       { title: "TypeScript", path: "typescript" },
-      { title: "Chart.js", path: "chartjs" }
+      { title: "Tailwind CSS", path: "tailwind" },
+      { title: "Shadcn UI", path: "shadcn-ui" },
     ],
     images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
+      "/robotics/robotics1.jpg",
+      "/robotics/robotics2.png",
+      "/robotics/robotics3.png",
     ]
   },
-
   {
-    isHome: false,
-    title: "Portfolio Builder",
-    desc: "A platform to create personal portfolios quickly using pre-designed templates and drag-and-drop interface.",
+    isHome: true,
+    title: "Interno",
+    isWorking: true,
+    privated: false,
+    link: "https://interno-swart.vercel.app/",
+    desc: "Interno is a modern interior design company that creates beautiful and functional spaces. We specialize in residential and commercial interior design, helping clients transform their spaces into stunning environments.",
     technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "TailwindCSS", path: "tailwind" },
-      { title: "React", path: "react" }
+      { title: "HTML", path: "html" },
+      { title: "CSS", path: "css" },
+      { title: "Tailwind CSS", path: "tailwind" },
     ],
     images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
+      "/interno/interno1.jpg",
+      "/interno/interno2.png",
+      "/interno/interno3.png",
+      "/interno/interno4.png",
+      "/interno/interno5.png",
     ]
   },
-
-  {
-    isHome: false,
-    title: "Event Scheduler",
-    desc: "Organize events, set reminders, and manage RSVPs with this intuitive scheduling platform.",
-    technologies: [
-      { title: "React", path: "react" },
-      { title: "TypeScript", path: "typescript" },
-      { title: "TailwindCSS", path: "tailwind" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Weather App",
-    desc: "Get real-time weather updates, forecasts, and alerts for multiple cities worldwide.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "React", path: "react" },
-      { title: "OpenWeatherMap API", path: "openweather" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Online Courses",
-    desc: "A learning platform offering courses, quizzes, and progress tracking for students globally.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "React", path: "react" },
-      { title: "TailwindCSS", path: "tailwind" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Music Stream",
-    desc: "A music streaming web application to play, create playlists, and share tracks with friends.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "React", path: "react" },
-      { title: "Spotify API", path: "spotify" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Portfolio Analyzer",
-    desc: "Analyze personal portfolios with statistics, charts, and recommendations to improve performance.",
-    technologies: [
-      { title: "React", path: "react" },
-      { title: "TypeScript", path: "typescript" },
-      { title: "Chart.js", path: "chartjs" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "Recipe Hub",
-    desc: "Discover, share, and save recipes with interactive steps, ratings, and personalized suggestions.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "React", path: "react" },
-      { title: "TailwindCSS", path: "tailwind" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  },
-
-  {
-    isHome: false,
-    title: "AI Chatbot",
-    desc: "Integrate a conversational AI chatbot for customer support, queries, and instant help on your website.",
-    technologies: [
-      { title: "Next.js", path: "next" },
-      { title: "React", path: "react" },
-      { title: "OpenAI API", path: "openai" }
-    ],
-    images: [
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080",
-      "https://editorial.pxcrush.net/carsales/general/editorial/2020-chevrolet-corvette-stingray-047.jpg?width=1920&height=1080"
-    ]
-  }
 ];

@@ -1,5 +1,5 @@
 "use client"
-import { useCursor } from "@/src/context/CursorContext";
+import { useCursor } from "@/context/CursorContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

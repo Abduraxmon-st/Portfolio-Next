@@ -1,4 +1,4 @@
-import { logoBg } from "@/src/assets/images"
+import { logoBg } from "@/assets/images"
 import Image from "next/image"
 export const Logo = () => {
   return (

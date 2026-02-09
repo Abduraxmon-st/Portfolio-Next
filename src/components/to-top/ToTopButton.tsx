@@ -1,6 +1,6 @@
 "use client"
 
-import { useCursor } from "@/src/context/CursorContext";
+import { useCursor } from "@/context/CursorContext";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { StickyNavbar } from "./StickyNavbar";
 import { Logo } from "../logotip";
-import { useCursor } from "@/src/context/CursorContext";
+import { useCursor } from "@/context/CursorContext";
 import Link from "next/link";
 import NavbarLink from "../link/NavbarLink";
 import { usePathname } from "next/navigation";

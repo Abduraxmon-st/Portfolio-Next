@@ -2,11 +2,11 @@
 import { ContactButton } from "../button/ContactButton"
 import { Badge } from "../ui/badge"
 import { ProjectSwiper } from "../swiper"
-import { projects } from "@/src/data/projects"
-import { slugify } from "@/src/hooks/useSlugify"
+import { projects } from "@/data/projects"
+import { slugify } from "@/hooks/useSlugify"
 import { ExternalLink } from "lucide-react"
 import OnViewAnimation from "../onload-animation/onviewAnimation"
-import { isMobileByWidth } from "@/src/lib/isPhone"
+import { isMobileByWidth } from "@/lib/isPhone"
 export const ProjectsSection = ({ page, button }: { page: boolean, button: boolean }) => {
   const mobileByWidth = isMobileByWidth();
   const isFilteredData = page ? projects
@@ -27,7 +27,7 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
               duration={1}
               translateX={i % 2 === 0 ? mobileByWidth ? 0 : -90 : mobileByWidth ? 0 : 90}
               translateY={i % 2 === 0 ? mobileByWidth ? 50 : 0 : mobileByWidth ? 50 : 0}>
-              <a aria-hidden href={`/portfolio/${slugify(item.title)}`} className="nc1:hidden absolute w-full h-full top-0 left-0 z-1" />
+              {/* <a aria-hidden href={`/portfolio/${slugify(item.title)}`} className="nc1:hidden absolute w-full h-full top-0 left-0 z-1" /> */}
               <div className="grid grid-cols-1 nc1:grid-cols-2 gap-7 xl:gap-25 relative">
                 <a href={`/portfolio/${slugify(item.title)}`} className="nc1:hidden absolute top-2 right-2 z-2 bg-mainEasierColor p-2 rounded-full">
                   <ExternalLink size={18} className="text-cyan-400" />
@@ -40,9 +40,9 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
                   <div>
                     <h3 className="text-2xl sm:text-3xl xl:text-4xl font-light text-white/90 mb-3 sm:mb-4 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
                     <div className="w-full border border-borderColor mb-3 sm:mb-4" />
-                    <p className="text-sm sm:text-base xl:text-lg text-white/60 leading-relaxed line-clamp-4 xl:line-clamp-5">{item.desc}</p>
+                    <p className="text-sm sm:text-base xl:text-lg text-white/60 leading-relaxed line-clamp-3">{item.desc}</p>
                   </div>
-                  <div className="flex flex-wrap gap-2 xl:gap-3 mb-4!">
+                  <div style={{ scrollbarWidth: "none" }} className="flex flex-nowrap xl:flex-wrap gap-2 xl:gap-3 mb-4! pr-3 overflow-auto">
                     {item.technologies.map((item, i) => (
                       <Badge key={i}>{item.title}</Badge>
                     ))}

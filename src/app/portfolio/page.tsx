@@ -1,9 +1,9 @@
 "use client"
-import { ContactButton } from "@/src/components/button/ContactButton"
-import { Container } from "@/src/components/container"
-import LoadingOpacity from "@/src/components/loading/LoadingOpacity"
-import Circles from "@/src/components/loading/PageLoading"
-import { ProjectsSection } from "@/src/components/main/ProjectsSection"
+import { ContactButton } from "@/components/button/ContactButton"
+import { Container } from "@/components/container"
+import LoadingOpacity from "@/components/loading/LoadingOpacity"
+import Circles from "@/components/loading/PageLoading"
+import { ProjectsSection } from "@/components/main/ProjectsSection"
 import { useEffect, useState } from "react"
 
 const ProjectsPage = () => {

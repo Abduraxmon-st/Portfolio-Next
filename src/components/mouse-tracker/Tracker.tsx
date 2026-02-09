@@ -1,7 +1,7 @@
 'use client';
 
-import { useCursor } from '@/src/context/CursorContext';
-import { useSmoothCursor } from '@/src/hooks/useSmoothCursor';
+import { useCursor } from '@/context/CursorContext';
+import { useSmoothCursor } from '@/hooks/useSmoothCursor';
 import { Plus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

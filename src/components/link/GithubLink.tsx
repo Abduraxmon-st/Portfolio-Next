@@ -33,7 +33,7 @@ const GithubLink = ({
         onMouseLeave={() => setHovered(false)}
         className="relative group font-medium"
       >
-        GitHub account.
+        GitHub
         <div className={`absolute w-[0%] ${opened && 'group-hover:w-[95%]'} h-px left-1/2 -translate-x-[50%] -bottom-px bg-cyan-400 transition-all`} />
       </a>
       {/* @ts-ignore */}

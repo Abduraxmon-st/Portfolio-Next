@@ -1,40 +1,15 @@
 "use client"
-import { useCursor } from "@/src/context/CursorContext";
+import { useCursor } from "@/context/CursorContext";
 import { Badge } from "../ui/badge"
 import { Paintbrush, Wrench } from "lucide-react";
 import OnViewAnimation from "../onload-animation/onviewAnimation";
-import { isMobileByWidth } from "@/src/lib/isPhone";
+import { isMobileByWidth } from "@/lib/isPhone";
+import { front, tools } from "@/data/skills";
 
 export const SkillsSection = () => {
   const { setHovered } = useCursor();
   const mobileByWidth = isMobileByWidth();
-  const front = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Shadcn",
-    "Tailwind CSS",
-    "MUI",
-    "Ant Design",
-    "Sass",
-    "Tanstack query",
-    "Zustand",
-    "Framer Motion"
-  ]
-  const tools = [
-    "Git",
-    "Git Hub",
-    "Git Hub Desktop",
-    "Figma",
-    "Vercel",
-    "Netlify",
-    "npm",
-    "PowerShell",
-    "VS Code",
-  ]
+
   return (
     <div className="mt-30 xl:mt-45">
       <OnViewAnimation duration={1} translateX={-100}>

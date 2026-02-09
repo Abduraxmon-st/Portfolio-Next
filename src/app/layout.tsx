@@ -52,7 +52,9 @@ export default function RootLayout({
           <Container>
             <Navbar />
           </Container>
-          {children}
+          <div className="relative z-1">
+            {children}
+          </div>
           <Container className="relative">
             <Footer />
           </Container>

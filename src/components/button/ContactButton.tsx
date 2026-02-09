@@ -1,4 +1,4 @@
-import { useCursor } from '@/src/context/CursorContext'
+import { useCursor } from '@/context/CursorContext'
 import { Button } from '../ui/button'
 import { ArrowRight } from 'lucide-react'
 

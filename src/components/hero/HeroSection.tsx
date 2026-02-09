@@ -1,8 +1,8 @@
 "use client"
-import { useCursor } from "@/src/context/CursorContext";
+import { useCursor } from "@/context/CursorContext";
 import { PrimaryBadge } from "../badge"
 import Image from "next/image";
-import { logoBg } from "@/src/assets/images";
+import { logoBg } from "@/assets/images";
 import { ContactButton } from "../button/ContactButton";
 import dynamic from 'next/dynamic'
 import PageLoadAnimation from "../onload-animation/onLoadAnimation";

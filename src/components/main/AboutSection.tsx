@@ -1,8 +1,8 @@
-import { logoBg } from '@/src/assets/images'
+import { logoBg } from '@/assets/images'
 import { BriefcaseBusiness, MapPin, Sparkle } from 'lucide-react'
 import Image from 'next/image'
 import OnViewAnimation from '../onload-animation/onviewAnimation'
-import { isMobileByWidth } from '@/src/lib/isPhone'
+import { isMobileByWidth } from '@/lib/isPhone'
 
 const AboutSection = () => {
   const mobileByWidth = isMobileByWidth();
@@ -37,7 +37,7 @@ const AboutSection = () => {
                   <BriefcaseBusiness size={20} />
                   <p className="text-white/80 text-base xl:text-lg font-medium group-hover:text-cyan-400 transition-all duration-300">Experience</p>
                 </div>
-                <span className="text-thirtyColor/80 transition-all duration-300 text-[15px] group-hover:text-white/70 font-medium flex items-center">1<p className="-translate-y-px pr-1">+</p> year</span>
+                <span className="text-thirtyColor/80 transition-all duration-300 text-[15px] group-hover:text-white/70 font-medium flex items-center">1 year</span>
               </div>
             </OnViewAnimation>
             <OnViewAnimation duration={1.1} translateY={50}>
