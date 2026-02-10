@@ -80,9 +80,7 @@ My goal is to create frontend solutions that not only look great, but also help 
 
 If you’d like to collaborate or discuss a project, feel free to reach out:
 
-- 📧 Email: your-email@example.com  
-- 💼 LinkedIn: https://linkedin.com/in/your-username  
-- 🌐 Portfolio: https://your-portfolio-link.com
+- 📧 Email: tojixojayevabduraxmon@gmail.com  
 
 ---
 
