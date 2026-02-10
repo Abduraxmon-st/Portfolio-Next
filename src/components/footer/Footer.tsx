@@ -42,7 +42,7 @@ export const Footer = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all duration-300 shrink-0">
                   <PhoneOutgoing size={20} className="text-descColor group-hover:text-cyan-400 transition-all duration-300" />
                 </div>
-                <div className="min-w-0"><p className="text-white/40 text-xs sm:text-sm mb-1">Phone</p><p className="text-sm xl:text-base group-hover:text-cyan-400 transition-colors break-all text-descColor">+998 00 000 00 00</p>
+                <div className="min-w-0"><p className="text-white/40 text-xs sm:text-sm mb-1">Phone</p><p className="text-sm xl:text-base group-hover:text-cyan-400 transition-colors break-all text-descColor">+998 97 721 68 61</p>
                 </div>
               </a>
             </OnViewAnimation>
