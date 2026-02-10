@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Hi, I'm Abduraxmon Tojixo'jayev  
+### Frontend Developer (React.js & Next.js Specialist)
 
-## Getting Started
+Building reliable and intuitive digital experiences using **React** and **Next.js**.  
+I’m passionate about writing clean code, improving frontend architecture, and creating user-centric web applications.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 About Me
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I’m a Frontend Developer specializing in **React** and **Next.js**, focused on building clean, scalable, and maintainable web applications.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Although I’m early in my career, I’ve already worked on multiple real-world projects, including:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 📊 Dashboards  
+- 🧩 Admin panels  
+- 🛠 Internal tools  
+- 🤖 Automation-focused features  
 
-## Learn More
+My goal is to create frontend solutions that not only look great, but also help businesses grow, reduce complexity, and simplify daily workflows through smart, data-driven development.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧑‍💻 Experience
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **1 year** of hands-on frontend development  
+- Worked on production-level web applications and internal systems
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📍 Location
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Tashkent, Uzbekistan**
+
+---
+
+## 🎯 Specialization
+
+- Frontend Developer  
+- React.js & Next.js Specialist  
+- Telegram Web Apps  
+- Web Solutions
+
+---
+
+## 🛠 Skills & Technologies
+
+### Frontend
+- HTML  
+- CSS  
+- JavaScript  
+- TypeScript  
+- React  
+- Next.js  
+- Shadcn  
+- Tailwind CSS  
+- MUI  
+- Ant Design  
+- Sass  
+- TanStack Query  
+- Zustand  
+- Zod  
+- Framer Motion  
+
+### Tools
+- Git  
+- GitHub  
+- GitHub Desktop  
+- Figma  
+- Vercel  
+- Netlify  
+- npm  
+- PowerShell  
+- VS Code  
+- Cursor  
+
+---
+
+## 📬 Contact
+
+If you’d like to collaborate or discuss a project, feel free to reach out:
+
+- 📧 Email: your-email@example.com  
+- 💼 LinkedIn: https://linkedin.com/in/your-username  
+- 🌐 Portfolio: https://your-portfolio-link.com
+
+---
+
+> “Great UI is not about looking good — it’s about working well.”
