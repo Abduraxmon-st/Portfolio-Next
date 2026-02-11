@@ -17,6 +17,11 @@ export const projects = [
     ],
     images: [
       "/uproject/uproject1.jpg",
+      "/uproject/uproject3.png",
+      "/uproject/uproject4.png",
+      "/uproject/uproject5.png",
+      "/uproject/uproject6.png",
+      "/uproject/uproject7.png",
     ]
   },
   {
@@ -37,6 +42,18 @@ export const projects = [
     ],
     images: [
       "/azera/azera1.jpg",
+      "/azera/azera2.png",
+      "/azera/azera3.png",
+      "/azera/azera4.png",
+      "/azera/azera5.png",
+      "/azera/azera6.png",
+      "/azera/azera7.png",
+      "/azera/azera8.png",
+      "/azera/azera9.png",
+      "/azera/azera10.png",
+      "/azera/azera11.png",
+      "/azera/azera12.png",
+      "/azera/azera13.png",
     ]
   },
   {

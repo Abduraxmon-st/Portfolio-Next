@@ -19,7 +19,7 @@ export const ProjectSwiper = ({ data }: { data: string[] }) => {
       {
         data.map((item, i) => (
           <SwiperSlide key={i} className='aspect-video hover:aspect-square'>
-            <Image width={720} height={405} src={item ?? ""} loading='lazy' alt="project image" className='size-full object-cover' />
+            <Image width={720} height={405} src={item ?? ""} loading='lazy' alt="project image" className='size-full object-cover hover:scale-105 transition-transform duration-300' />
           </SwiperSlide>
         ))
       }

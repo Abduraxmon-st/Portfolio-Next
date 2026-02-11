@@ -46,7 +46,8 @@ export default function PortfolioDetailPage() {
 
       <div className="grid nc1:grid-cols-2 gap-5 nc1:gap-10 xl:gap-20">
         <div className="row-2 nc1:row-auto mt-4">
-          {project?.desc}
+          <p className="text-lg opacity-70">{project?.desc}</p>
+
           {
             project?.privated ? (
               <p className="text-sm text-red-600 font-bold mt-5 opacity-90">This project is private and cannot be accessed.</p>
