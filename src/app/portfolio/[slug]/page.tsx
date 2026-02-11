@@ -5,15 +5,17 @@ import { projects } from "@/data/projects";
 import { slugify } from "@/hooks/useSlugify";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Circles from "@/components/loading/PageLoading";
 import LoadingOpacity from "@/components/loading/LoadingOpacity";
+import Viewer from "viewerjs";
 
 export default function PortfolioDetailPage() {
   const params = useParams();
   const { slug } = params;
   const [loaded, setLoaded] = useState(false);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (document.readyState === "complete") {
       setLoaded(true);
@@ -27,6 +29,30 @@ export default function PortfolioDetailPage() {
 
   const title = slug ? slug : ""
   const project = projects.find((item) => slugify(item.title) === title)
+
+  useEffect(() => {
+    console.log("galleryRef:", galleryRef.current);
+    console.log(
+      "images in DOM:",
+      galleryRef.current?.querySelectorAll("img")?.length
+    );
+
+    if (!galleryRef.current) return;
+    if (!project?.images?.length) return;
+
+    const viewer = new Viewer(galleryRef.current, {
+      toolbar: true,
+      navbar: false,
+      title: false,
+      movable: false,
+      zoomable: true,
+    });
+
+    return () => {
+      viewer.destroy()
+    };
+  }, [project?.images, slug, galleryRef, loaded]);
+
   if (!loaded) {
     return <Circles />;
   }
@@ -83,7 +109,7 @@ export default function PortfolioDetailPage() {
         project?.images?.length! > 1 && (
           <>
             <p className="main-title mt-15 nc1:mt-25">More Images</p>
-            <div className="grid nc1:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-7.5 mt-10">
+            <div ref={galleryRef} className="grid nc1:grid-cols-2 xl:grid-cols-3 gap-5 xl:gap-7.5 mt-10">
               {project?.images.map((item, i) => (
                 <div key={i} className="rounded-2xl overflow-hidden">
                   <img src={item} alt="project image" className="object-cover w-full h-full" />
