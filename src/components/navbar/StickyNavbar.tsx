@@ -66,8 +66,8 @@ export const StickyNavbar = ({
           <div className="flex items-center justify-center gap-4 xl:gap-5">
             <NavbarLink href="/home">Home</NavbarLink>
             <NavbarLink href="/portfolio">Portfolio</NavbarLink>
+            <NavbarLink href="/Tojixojayev Abduraxmon's resume.pdf" download children={"Resume"} />
           </div>
-
           <ProgressBar />
         </div>
       </div>

@@ -67,8 +67,8 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
         ))}
       </div>
       {(button && (projects.length > 3)) && (
-        <div className="flex items-center justify-center mt-10 pt-10 border-t border-borderColor">
-          <OnViewAnimation duration={1} translateY={100}>
+        <OnViewAnimation duration={1} translateY={100}>
+          <div className="flex items-center justify-center mt-10 pt-10 border-t border-borderColor">
             <a
               style={{ cursor: "none" }}
               href="/portfolio"
@@ -77,8 +77,8 @@ export const ProjectsSection = ({ page, button }: { page: boolean, button: boole
                 View All Projects
               </ContactButton>
             </a>
-          </OnViewAnimation>
-        </div>
+          </div>
+        </OnViewAnimation>
       )}
     </div>
   )

@@ -65,6 +65,7 @@ export const Navbar = () => {
                 <div className="absolute bottom-0.5 xl:-bottom-0.5 left-1/2 w-0 h-px xl:h-0.5 bg-thirtyColor/50 group-hover:w-full group-hover:left-0 transition-all duration-300 rounded-2xl text-[15px] xl:text-base"></div>
               </Link>
             </div>
+            <NavbarLink href="/Tojixojayev Abduraxmon's resume.pdf" download children={"Resume"} />
           </div>
         </nav>
       </PageLoadAnimation>

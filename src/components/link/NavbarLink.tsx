@@ -3,7 +3,7 @@ import { useCursor } from "@/context/CursorContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavbarLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+const NavbarLink = ({ href, children, download }: { href: string, children: React.ReactNode, download?: boolean }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
   const isPortfolio = href === "/portfolio"
@@ -18,6 +18,7 @@ const NavbarLink = ({ href, children }: { href: string, children: React.ReactNod
       <Link
         style={{ cursor: "none" }}
         href={href ?? "#"}
+        download={download}
       >
         <span className={`group-hover:text-thirtyColor text-[15px]! xl:text-base! ${(isActive || (isSlugPortfolio && isPortfolio)) ? "text-thirtyColor" : ""} transition-[color] duration-200`}>
           {children}
