@@ -47,7 +47,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-center gap-5">
             <NavbarLink href="/home" children={"Home"} />
             <NavbarLink href="/portfolio" children={"Portfolio"} />
-            <div
+            {/* <div
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
               className="relative group">
@@ -64,7 +64,7 @@ export const Navbar = () => {
                 <span className="group-hover:text-thirtyColor transition-[color] duration-200">Contact</span>
                 <div className="absolute bottom-0.5 xl:-bottom-0.5 left-1/2 w-0 h-px xl:h-0.5 bg-thirtyColor/50 group-hover:w-full group-hover:left-0 transition-all duration-300 rounded-2xl text-[15px] xl:text-base"></div>
               </Link>
-            </div>
+            </div> */}
             <NavbarLink href="/Tojixojayev Abduraxmon's resume.pdf" download children={"Resume"} />
           </div>
         </nav>
