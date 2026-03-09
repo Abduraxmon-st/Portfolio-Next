@@ -39,7 +39,7 @@ export const DashboardSidebar = ({ className }: { className?: string }) => {
       }}
         className="flex flex-col gap-2 transition-all duration-300 flex-1">
         {sidebarLinks.map((link) => (
-          <SidebarLink link={link} open={openSidebar} />
+          <SidebarLink key={link.path} link={link} open={openSidebar} />
         ))}
         <Link
           style={{
