@@ -1,15 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css"
-import { CursorProvider } from "../context/CursorContext";
-import Tracker from "../components/mouse-tracker/Tracker";
-import Image from "next/image";
-import { lights } from "../assets/images";
-import { Container } from "../components/container";
-import { Navbar } from "../components/navbar";
-import { Footer } from "../components/footer";
-import { ToTopButton } from "../components/to-top/ToTopButton";
-import PageLoadAnimation from "../components/onload-animation/onLoadAnimation";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -40,31 +32,11 @@ export default function RootLayout({
       </head>
       <body
         className={`${poppins.variable} ${inter.variable} antialiased relative`}
-        style={{ cursor: "none", overflow: "unset" }}>
-        <PageLoadAnimation duration={1.5} translateY={-250}>
-          <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
-        </PageLoadAnimation>
-        <PageLoadAnimation duration={1.5} translateY={-250}>
-          <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />
-        </PageLoadAnimation>
-        <CursorProvider>
-          <Tracker />
-          <Container>
-            <Navbar />
-          </Container>
-          <div className="relative z-1">
-            {children}
-          </div>
-          <Container className="relative">
-            <Footer />
-          </Container>
-          <PageLoadAnimation duration={1.5} translateY={250}>
-            <div className="border-t border-borderColor py-7 xl:py-9 mt-10 nc1:mt-20">
-              <p className="text-xs xl:text-base text-center text-descColor/50">© 2025 Abduraxmon Tojixo'jayev. All rights reserved.</p>
-            </div>
-          </PageLoadAnimation>
-          <ToTopButton />
-        </CursorProvider>
+      // style={{ cursor: "none", overflow: "unset" }}
+      >
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
