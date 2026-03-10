@@ -14,8 +14,8 @@ export function useSmoothCursor(speed = 0.1) {
 
     const follow = () => {
       setCursor((prev) => {
-        const x = prev.x + (position.current.x - prev.x) * speed + (-0.8);
-        const y = prev.y + (position.current.y - prev.y) * speed + (-0.8);
+        const x = prev.x + (position.current.x - prev.x) * speed + (-1.1);
+        const y = prev.y + (position.current.y - prev.y) * speed + (-1.1);
         return { x, y };
       });
       raf.current = requestAnimationFrame(follow);

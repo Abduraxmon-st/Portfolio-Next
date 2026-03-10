@@ -1,4 +1,5 @@
 import { lights } from '@/assets/images';
+import { AdminAccessModal } from '@/components/admin/modal/AdminAccessModal';
 import { Container } from '@/components/container';
 import { Footer } from '@/components/footer';
 import Tracker from '@/components/mouse-tracker/Tracker';
@@ -17,6 +18,7 @@ const UserLayout = ({
   return (
     <div className='relative' style={{ cursor: "none", overflow: "unset" }}>
       <CursorProvider>
+        <AdminAccessModal />
         <PageLoadAnimation duration={1.5} translateY={-250}>
           <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
         </PageLoadAnimation>
