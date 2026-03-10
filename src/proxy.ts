@@ -14,11 +14,11 @@ export function proxy(req: NextRequest) {
     pathname.includes("/dashboard/experience") ||
     pathname.includes("/dashboard/skills")
 
-  if (isAuthRoute && !isAuthenticated) {
+  if (url.pathname === "/") {
     url.pathname = "/home";
     return NextResponse.redirect(url);
   }
-  if (url.pathname === "/") {
+  if (isAuthRoute && !isAuthenticated) {
     url.pathname = "/home";
     return NextResponse.redirect(url);
   }
@@ -27,5 +27,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["/", "/dashboard/:path*"],
 };
