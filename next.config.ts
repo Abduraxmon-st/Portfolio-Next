@@ -15,10 +15,11 @@ const nextConfig: NextConfig = {
   // }
   images: {
     unoptimized: true,
-  },  
+  },
   env: {
-  GOOGLE_SHEETS_API_URL: process.env.GOOGLE_SHEETS_API_URL,
-},
+    GOOGLE_SHEETS_API_URL: process.env.GOOGLE_SHEETS_API_URL,
+    NEXT_ADMIN_ACCESS_KEY: process.env.NEXT_ADMIN_ACCESS_KEY,
+  },
 };
 
 export default nextConfig;
