@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { sidebarLinks } from "@/data/admin/sidebar-data"
-import { ChevronRight, Home, Sidebar, SidebarOpen } from "lucide-react"
+import { ChevronRight, Home, Sidebar } from "lucide-react"
 import { useState } from "react"
 import { SidebarLink } from "../link"
 import Link from "next/link"
@@ -11,7 +11,7 @@ import useWindowDimensions from "@/hooks/useWindowDimensions"
 export const DashboardSidebar = ({ className }: { className?: string }) => {
   const pathname = usePathname()
   const { width } = useWindowDimensions()
-  const tablet = width <= 768
+  const tablet = width ? width <= 768 : false
   const [openSidebar, setOpenSidebar] = useState<boolean>(false)
   const sidebarToggle = (openSidebar: boolean): number => {
     if (tablet) {
