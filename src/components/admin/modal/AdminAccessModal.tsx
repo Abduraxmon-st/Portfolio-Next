@@ -13,13 +13,15 @@ import { Input } from "@/components/ui/input";
 import { useCursor } from "@/context/CursorContext";
 import { useCookie } from "@/hooks/useCookie";
 import { ShieldUser } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 const ACCESS_KEY = process.env.NEXT_ADMIN_ACCESS_KEY
 
 export const AdminAccessModal = () => {
   const router = useRouter()
-  const { setCookie } = useCookie()
+  const { setCookie, getCookie } = useCookie()
+  const Acookie = getCookie("ADMIN_ACCESS_PORT")
   const { setHovered } = useCursor();
   const [isFocused, setIsFocused] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -45,7 +47,14 @@ export const AdminAccessModal = () => {
       setIsErrorMessage("Invalid access key")
     }
   }
-  return (
+  if (!!Acookie) {
+    return <Link
+      href="/dashboard/main"
+      style={{ cursor: "none" }}
+      className="fixed flex items-center justify-center left-4 bottom-4 z-99 rounded-full border size-7.5 border-borderColor">
+      <ShieldUser size={16} className="opacity-40 mt-px" />
+    </Link>
+  } else return (
     <Dialog>
       <DialogTrigger
         style={{ cursor: "none" }}
@@ -85,7 +94,7 @@ export const AdminAccessModal = () => {
                 setIsFocused(false);
                 setPass(e.target.value)
               }}
-              type="text"
+              type="password"
               style={{ cursor: "none" }}
               className={`text-descColor relative z-2 h-10
               ${isError

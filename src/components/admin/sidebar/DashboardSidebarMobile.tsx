@@ -17,7 +17,7 @@ export const DashboardSidebarMobile = () => {
   return (
     <Sheet>
       <SheetTrigger className="p-2">
-        <TableOfContents />
+        <TableOfContents size={20}/>
       </SheetTrigger>
       <SheetContent className="bg-mainColor text-descColor! border-0 gap-0">
         <SheetHeader className="gap-0">

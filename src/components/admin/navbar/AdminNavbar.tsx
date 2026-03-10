@@ -20,7 +20,7 @@ export const AdminNavbar = () => {
         <h3 className="text-xl lg:text-[22px] font-bold tracking-wide capitalize">
           {pathname.slice(11) ?? ""}
         </h3>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Tooltip>
             <TooltipTrigger>
               <div onClick={() => handleRefresh()} className={`p-2 cursor-pointer ${reloading && "animate-spin"}`}>
@@ -43,7 +43,9 @@ export const AdminNavbar = () => {
               <p>Logout</p>
             </TooltipContent>
           </Tooltip>
-          <DashboardSidebarMobile />
+          <div className="md:hidden">
+            <DashboardSidebarMobile />
+          </div>
         </div>
       </div>
       <AdminLogoutModal open={open} setOpen={setOpen} />
