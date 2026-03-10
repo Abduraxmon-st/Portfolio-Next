@@ -5,14 +5,18 @@ interface SidebarProps {
   icon: React.ReactNode,
   path: string
 }
-export const SidebarLink = ({ link, open }: { link: SidebarProps, open: boolean }) => {
+export const SidebarLink = ({ link, open, active }: { link: SidebarProps, open: boolean, active: boolean }) => {
   return (
     <Tooltip>
       <TooltipTrigger>
         <Link
           href={`/dashboard/${link.path}`}
-          className="flex items-center gap-2 hover:bg-thirtyColor/12 p-2 rounded-lg text-descColor overflow-hidden transition-all"
+          className={`
+          relative flex items-center gap-2 p-2 rounded-l-md hover:rounded-md overflow-hidden transition-all duration-200  
+          ${active ? "text-cyan-400 hover:bg-cyan-400/12 bg-cyan-400/8" : "text-descColor hover:bg-thirtyColor/12"}
+          `}
         >
+          <div className={`absolute h-full w-1 right-0 top-0 ${active ? "bg-cyan-500" : "bg-transparent"} transition-all duration-200 rounded-full`} />
           <div className="size-6 flex items-center justify-center">
             {link.icon}
           </div>

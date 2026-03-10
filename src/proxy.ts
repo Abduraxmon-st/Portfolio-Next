@@ -10,7 +10,7 @@ export function proxy(req: NextRequest) {
 
   const isAuthRoute =
     pathname.includes("/dashboard/main") ||
-    pathname.includes("/dashboard/portfolio") ||
+    pathname.includes("/dashboard/projects") ||
     pathname.includes("/dashboard/experience") ||
     pathname.includes("/dashboard/skills")
 

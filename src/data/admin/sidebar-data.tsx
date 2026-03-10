@@ -1,14 +1,14 @@
-import { BriefcaseBusiness, Cpu, FileSliders, ScrollText } from "lucide-react";
+import { BriefcaseBusiness, Cpu, ScrollText, SlidersHorizontal } from "lucide-react";
 
 export const sidebarLinks = [
   {
     label: "Main",
     path: "/main",
-    icon: <FileSliders />
+    icon: <SlidersHorizontal />
   },
   {
     label: "Projects",
-    path: "/portfolio",
+    path: "/projects",
     icon: <ScrollText />
   },
   {
