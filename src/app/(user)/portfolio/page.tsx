@@ -10,18 +10,7 @@ const ProjectsPage = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    // agar sahifa allaqachon yuklangan bo‘lsa
-    if (typeof window === "undefined") return;
-    if (document.readyState === "complete") {
-      setLoaded(true);
-      return;
-    }
-
-    // aks holda load eventini kutadi
-    const handleLoad = () => setLoaded(true);
-    window.addEventListener("load", handleLoad);
-
-    return () => window.removeEventListener("load", handleLoad);
+    setLoaded(true);
   }, []);
 
   if (!loaded) {

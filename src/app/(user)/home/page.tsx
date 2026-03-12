@@ -9,16 +9,9 @@ import LoadingOpacity from "@/components/loading/LoadingOpacity";
 
 const HomePage = () => {
   const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (document?.readyState === "complete") {
-      setLoaded(true);
-      return;
-    }
-    const handleLoad = () => setLoaded(true);
-    window.addEventListener("load", handleLoad);
 
-    return () => window.removeEventListener("load", handleLoad);
+  useEffect(() => {
+    setLoaded(true);
   }, []);
 
   if (!loaded) {

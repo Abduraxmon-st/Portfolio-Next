@@ -20,15 +20,7 @@ export default function PageLoadAnimation({
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => setLoaded(true);
-
-    if (typeof window === "undefined") return;
-    if (document.readyState === "complete") {
-      setLoaded(true);
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
+    setLoaded(true);
   }, []);
 
   return (

@@ -16,16 +16,9 @@ export default function PortfolioDetailPage() {
   const { slug } = params;
   const [loaded, setLoaded] = useState(false);
   const galleryRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (document.readyState === "complete") {
-      setLoaded(true);
-      return;
-    }
-    const handleLoad = () => setLoaded(true);
-    window.addEventListener("load", handleLoad);
 
-    return () => window.removeEventListener("load", handleLoad);
+  useEffect(() => {
+    setLoaded(true);
   }, []);
 
   const title = slug ? slug : ""
