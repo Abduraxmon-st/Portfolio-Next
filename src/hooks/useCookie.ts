@@ -3,25 +3,27 @@
 import { useCallback } from 'react';
 
 export const useCookie = () => {
-  // Cookie qiymatini olish funksiyasi
+  // Cookie qiymatini olish
   const getCookie = useCallback((name: string) => {
-    const value = `; ${document?.cookie}`;
+    if (typeof document === "undefined") return null; // serverda return
+    const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop()?.split(';').shift();
     return null;
   }, []);
 
-  // Cookie qo'shish yoki o'zgartirish funksiyasi
+  // Cookie qo'shish yoki o'zgartirish
   const setCookie = useCallback((name: string, value: string, days: number = 7) => {
+    if (typeof document === "undefined") return; // serverda ishlamasin
     const date = new Date();
     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     const expires = `expires=${date.toUTCString()}`;
-    // path=/ barcha sahifalarda ishlashi uchun
     document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax`;
   }, []);
 
-  // Cookie o'chirish funksiyasi
+  // Cookie o'chirish
   const deleteCookie = useCallback((name: string) => {
+    if (typeof document === "undefined") return; // serverda ishlamasin
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   }, []);
 
