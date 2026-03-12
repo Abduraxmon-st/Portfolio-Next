@@ -22,6 +22,7 @@ export default function PageLoadAnimation({
   useEffect(() => {
     const handleLoad = () => setLoaded(true);
 
+    if (typeof window === "undefined") return;
     if (document.readyState === "complete") {
       setLoaded(true);
     } else {

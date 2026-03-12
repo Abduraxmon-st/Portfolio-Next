@@ -51,14 +51,14 @@ export const AdminAccessModal = () => {
     return <Link
       href="/dashboard/main"
       style={{ cursor: "none" }}
-      className="fixed flex items-center justify-center left-4 bottom-4 z-99 rounded-full border size-7.5 border-borderColor">
+      className="fixed flex items-center justify-center left-4 bottom-0 sm:bottom-4 z-99 rounded-full border size-7.5 border-borderColor">
       <ShieldUser size={16} className="opacity-40 mt-px" />
     </Link>
   } else return (
     <Dialog>
       <DialogTrigger
         style={{ cursor: "none" }}
-        className="fixed flex items-center justify-center left-4 bottom-4 z-99 rounded-full border size-7.5 border-borderColor">
+        className="fixed flex items-center justify-center left-4 bottom-0 sm:bottom-4 z-99 rounded-full border size-7.5 border-borderColor">
         <ShieldUser size={16} className="opacity-40 mt-px" />
       </DialogTrigger>
       <DialogContent

@@ -1,10 +1,11 @@
-export const projects = [
+import { Project } from "@/types";
+
+export const projects: Project[] = [
   {
     isHome: true,
     title: "UProject",
-    isWorking: false,
+    type: "down",
     link: "https://uproject.uz/",
-    privated: false,
     desc: "UProject is your reliable technology partner, providing modern, stable and fully customized IT solutions. We create CRM systems, e-commerce sites, mobile applications, Telegram bots and other innovative digital products that will grow your business.",
     technologies: [
       { title: "Next.js", path: "next" },
@@ -27,8 +28,7 @@ export const projects = [
   {
     isHome: true,
     title: "Azera",
-    isWorking: false,
-    privated: false,
+    type: "down",
     link: "https://azera.uz/",
     desc: "Azera — your smart marketplace for saving and sharing. Azera connects users and local stores, allowing everyone to sell or buy quality products with ease. Our platform promotes smart shopping, sustainability, and community support — helping you save more, waste less, and make every deal meaningful.",
     technologies: [
@@ -59,8 +59,7 @@ export const projects = [
   {
     isHome: true,
     title: "WellmedPharm",
-    isWorking: true,
-    privated: true,
+    type: "private",
     link: "#",
     desc: "Wellmedpharm Telegram bot is a convenient system designed to automate pharmacy operations. The bot allows you to add, edit, and delete (CRUD) products (pharmacies), clinics, doctors, and tour plans. Simplified management through reports, products, and the admin panel.",
     technologies: [
@@ -86,8 +85,7 @@ export const projects = [
   {
     isHome: true,
     title: "Just Robotics",
-    isWorking: true,
-    privated: false,
+    type: "working",
     link: "https://just-robotics-five.vercel.app/",
     desc: "JustRobotics is an educational center that combines technology, art, and learning. We create a supportive environment, apply modern teaching methods, and focus on each student’s personal growth.",
     technologies: [
@@ -105,8 +103,7 @@ export const projects = [
   {
     isHome: true,
     title: "Interno",
-    isWorking: true,
-    privated: false,
+    type: "working",
     link: "https://interno-swart.vercel.app/",
     desc: "Interno is a modern interior design company that creates beautiful and functional spaces. We specialize in residential and commercial interior design, helping clients transform their spaces into stunning environments.",
     technologies: [

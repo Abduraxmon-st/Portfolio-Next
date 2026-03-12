@@ -17,6 +17,7 @@ export default function PortfolioDetailPage() {
   const [loaded, setLoaded] = useState(false);
   const galleryRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (document.readyState === "complete") {
       setLoaded(true);
       return;
@@ -75,16 +76,25 @@ export default function PortfolioDetailPage() {
           <p className="text-lg opacity-70">{project?.desc}</p>
 
           {
-            project?.privated ? (
-              <p className="text-sm text-red-600 font-bold mt-5 opacity-90">This project is private and cannot be accessed.</p>
-            ) : project?.isWorking ? (
-              <a style={{ cursor: "none" }} href={project?.link} target="_blank" className="relative w-max flex gap-1 mt-2.5 items-center text-thirtyColor font-medium  group">
+            project?.type === "private" ? (
+              <p className="text-sm text-red-600 font-bold mt-5 opacity-90">
+                This project is private and cannot be accessed.
+              </p>
+            ) : project?.type === "working" ? (
+              <a
+                style={{ cursor: "none" }}
+                href={project?.link}
+                target="_blank"
+                className="relative w-max flex gap-1 mt-2.5 items-center text-thirtyColor font-medium group"
+              >
                 Go visit {project?.title}
                 <ExternalLink size={16} />
-                <div className=" absolute w-[0%] group-hover:w-full h-px left-1/2 -translate-x-[50%] bottom-0 bg-thirtyColor transition-all" />
+                <div className="absolute w-[0%] group-hover:w-full h-px left-1/2 -translate-x-[50%] bottom-0 bg-thirtyColor transition-all" />
               </a>
             ) : (
-              <p className="relative w-max mt-2.5 items-center text-red-600 font-bold opacity-90">The site is temporarily down</p>
+              <p className="relative w-max mt-2.5 items-center text-red-600 font-bold opacity-90">
+                The site is temporarily down
+              </p>
             )
           }
         </div>

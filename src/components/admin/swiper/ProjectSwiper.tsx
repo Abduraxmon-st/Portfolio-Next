@@ -1,0 +1,42 @@
+"use client"
+import Image from 'next/image'
+import { useEffect, useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import Viewer from 'viewerjs';
+import "viewerjs/dist/viewer.css";
+
+export const ProjectSwiper = ({ data }: { data: string[] }) => {
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!galleryRef.current) return;
+
+    const viewer = new Viewer(galleryRef.current, {
+      toolbar: true,
+      navbar: false,
+      title: false,
+      movable: false,
+      zoomable: true,
+
+    });
+
+    return () => {
+      viewer.destroy()
+    }
+  }, []);
+  return (
+    <div ref={galleryRef} className='size-full'>
+      <Swiper
+        spaceBetween={2}
+        centeredSlides
+      >
+        {
+          data.map((item, i) => (
+            <SwiperSlide key={i} className='aspect-video'>
+              <Image width={720} height={405} src={item ?? ""} loading='lazy' alt="project image" className='size-full object-cover' />
+            </SwiperSlide>
+          ))
+        }
+      </Swiper>
+    </div>
+  )
+}

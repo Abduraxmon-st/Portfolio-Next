@@ -1,6 +1,16 @@
+import { ProjectCardsSection } from "@/components/admin/section/ProjectCardsSection"
+import { ProjectsTable } from "@/components/admin/table"
+import { ListCardTabs } from "@/components/admin/tabs"
+
 const ProjectsPage = () => {
   return (
-    <div className="h-1000">ProjectsPage</div>
+    <div>
+      <ListCardTabs
+        list={<ProjectsTable />}
+        card={<ProjectCardsSection />}
+      />
+
+    </div>
   )
 }
 

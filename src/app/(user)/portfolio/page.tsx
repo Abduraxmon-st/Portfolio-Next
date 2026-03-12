@@ -11,6 +11,7 @@ const ProjectsPage = () => {
 
   useEffect(() => {
     // agar sahifa allaqachon yuklangan bo‘lsa
+    if (typeof window === "undefined") return;
     if (document.readyState === "complete") {
       setLoaded(true);
       return;
