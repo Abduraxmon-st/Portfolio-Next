@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Viewer from 'viewerjs';
-import "viewerjs/dist/viewer.css";
+import "viewerjs/dist/viewer.css";import z from 'zod';
 
 export const ProjectSwiper = ({ data }: { data: string[] }) => {
   const galleryRef = useRef<HTMLDivElement | null>(null);

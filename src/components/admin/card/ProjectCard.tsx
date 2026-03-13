@@ -2,8 +2,14 @@ import { ProjectSwiper } from "@/components/admin/swiper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/types";
-
-export const ProjectCard = ({ item, i }: { item: Project, i: number }) => {
+interface ProjectCardProps {
+  item: Project;
+  i: number;
+  setOpenDel: (value: boolean) => void;
+  setOpenEdit: (value: boolean) => void;
+  setProject: (project: Project | null) => void;
+}
+export const ProjectCard = ({ item, i, setOpenDel, setOpenEdit, setProject }: ProjectCardProps) => {
   return (
     <div key={i} className="flex flex-col relative z-3 border border-descColor/15 rounded-2xl">
       <div className={`bg-gray-800 aspect-video rounded-t-2xl overflow-hidden`}>
@@ -33,10 +39,20 @@ export const ProjectCard = ({ item, i }: { item: Project, i: number }) => {
         <div className="mt-auto">
           <div className="border-t my-2 border-descColor/20" />
           <div className="grid grid-cols-3 gap-2">
-            <Button className="border border-descColor/20 bg-descColor/5 text-descColor">
+            <Button
+              onClick={() => {
+                setProject(item)
+                setOpenEdit(true)
+              }}
+              className="border border-descColor/20 bg-descColor/5 text-descColor">
               Edit
             </Button>
-            <Button className="border border-red-600/50 text-red-600/70 bg-red-600/10">
+            <Button
+              onClick={() => {
+                setProject(item)
+                setOpenDel(true)
+              }}
+              className="border border-red-600/50 text-red-600/70 bg-red-600/10">
               Delete
             </Button>
             {(item.type === "down" || item.type === "private") ? (

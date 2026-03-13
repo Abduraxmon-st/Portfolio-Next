@@ -1,6 +1,6 @@
 const ExperiencePage = () => {
   return (
-    <div>ExperiencePage</div>
+    <div>Coming soon Experience</div>
   )
 }
 

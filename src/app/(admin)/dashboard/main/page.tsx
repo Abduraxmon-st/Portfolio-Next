@@ -1,6 +1,6 @@
 const MainPage = () => {
   return (
-    <div>MainPage</div>
+    <div>Coming soon main</div>
   )
 }
 

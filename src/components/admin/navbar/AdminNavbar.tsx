@@ -1,18 +1,26 @@
 "use client"
-import { usePathname } from "next/navigation"
-import { AdminLogoutModal } from "../modal"
+import { usePathname, useRouter } from "next/navigation"
 import { LogOut, RefreshCw } from "lucide-react"
 import { useState } from "react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { DashboardSidebarMobile } from "../sidebar/DashboardSidebarMobile"
+import { AdminConfirmModal } from "../modal"
+import { useCookie } from "@/hooks/useCookie"
 
 export const AdminNavbar = () => {
   const pathname = usePathname()
+  const { deleteCookie } = useCookie()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
   const [reloading, setReloading] = useState(false)
   const handleRefresh = () => {
     setReloading(true)
     window.location.reload()
+  }
+
+  const handleConfirmLogout = () => {
+    deleteCookie("ADMIN_ACCESS_PORT")
+    router.push("/home")
   }
   return (
     <nav>
@@ -48,7 +56,12 @@ export const AdminNavbar = () => {
           </div>
         </div>
       </div>
-      <AdminLogoutModal open={open} setOpen={setOpen} />
+      <AdminConfirmModal
+        open={open}
+        setOpen={setOpen}
+        button="Log out"
+        handleConfirm={handleConfirmLogout}
+      />
     </nav>
   )
 }
