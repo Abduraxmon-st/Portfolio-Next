@@ -3,7 +3,7 @@
 import { Technology } from "@/types";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { Check, X } from "lucide-react";
 import {
   Command,
   CommandGroup,
@@ -16,6 +16,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
+import { technology } from "@/data/skills";
 type Props = {
   technologies: Technology[];
   value: string[];
@@ -76,12 +77,12 @@ export const TechnologiesSelect = ({
         <Command className="bg-transparent!">
           <CommandInput placeholder="Search technology..." className="placeholder:text-descColor/50 text-descColor" />
           <CommandGroup className="text-descColor!">
-            {technologies.map((tech) => (
+            {technology.map((tech) => (
               <CommandItem
                 key={tech.path}
                 onSelect={() => toggleTech(tech.path)}
               >
-                <img src={`/${tech.path}.svg`} alt={""} className="rounded-[3px] size-4 cursor-pointer" />
+                <img src={`/${tech.path}.svg`} alt={"icon"} className="rounded-[3px] size-4 cursor-pointer" />
                 {tech.title}
 
                 <Check

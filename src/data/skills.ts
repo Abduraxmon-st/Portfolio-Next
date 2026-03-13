@@ -13,7 +13,7 @@ export const front = [
   "Tanstack query",
   "Zustand",
   "Zod",
-  "Framer Motion"
+  "Framer Motion"//
 ]
 export const tools = [
   "Git",
@@ -27,3 +27,20 @@ export const tools = [
   "VS Code",
   "Cursor",
 ]
+
+export const technology = [
+  { title: "Next.js", path: "next" },
+  { title: "TypeScript", path: "typescript" },
+  { title: "Tanstack query", path: "tanstack-query" },
+  { title: "Zustand", path: "zustand" },
+  { title: "Zod", path: "zod" },
+  { title: "Tailwind CSS", path: "tailwind" },
+  { title: "Shadcn UI", path: "shadcn-ui" },
+  { title: "React.js", path: "react" },
+  { title: "HTML", path: "html" },
+  { title: "JavaScript", path: "javascript" },
+  { title: "Ant Design", path: "ant" },
+  { title: "MUI", path: "mui" },
+  { title: "Sass", path: "sass" },
+  { title: "Framer Motion", path: "framer" },
+];

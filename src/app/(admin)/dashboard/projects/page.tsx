@@ -40,15 +40,18 @@ const ProjectsPage = () => {
 
   return (
     <div className="relative">
-      <div className="sm:absolute mb-4 sm:mb-0 right-0 top-0 flex items-center gap-2">
+      <div className="w-full sm:w-auto absolute mb-4 sm:mb-0 right-0 top-0 flex flex-col sm:flex-row items-end sm:items-center gap-2">
         <SearchInput search={search} setSearch={setSearch} />
-        <TypeSelect type={type} setTipe={setType} />
-        <Button onClick={() => setOpen(true)} className="border border-descColor/20 bg-mainColor/20 text-descColor">
-          <Plus size={15}/>
-          Add
-        </Button>
+        <div className="flex items-center gap-2">
+          <TypeSelect type={type} setTipe={setType} />
+          <Button onClick={() => setOpen(true)} className="border border-descColor/20 bg-mainColor/20 text-descColor">
+            <Plus size={15} />
+            Add
+          </Button>
+        </div>
       </div>
       <ListCardTabs
+      className="pt-11 sm:pt-0"
         list={<ProjectsTable projects={filteredProjects} />}
         card={<ProjectCardsSection projects={filteredProjects} />}
       />

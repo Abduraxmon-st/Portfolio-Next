@@ -6,9 +6,9 @@ interface props {
 }
 export const SearchInput = ({ search, setSearch }: props) => {
   return (
-    <div className="w-max relative">
+    <div className="w-full sm:w-max relative">
       <Input
-        className="max-w-[200px] h-9 bg-mainColor/20 border-descColor/20 rounded-md pr-8"
+        className="w-full max-w-full sm:max-w-50 h-9 bg-mainColor/20 border-descColor/20 rounded-md pr-8"
         value={search}
         placeholder="Search..."
         onChange={(e) => setSearch(e.target.value)}
