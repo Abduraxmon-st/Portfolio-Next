@@ -57,7 +57,7 @@ export const TechnologiesSelect = ({
               return (
                 <Badge key={tech} className="flex items-center gap-1 px-2! nc1:px-2! xl:px-2! py-1! text-xs! xl:text-xs">
                   {item?.title}
-                  <button
+                  <div
                     onClick={(e) => {
                       e.stopPropagation();
                       removeTech(tech);
@@ -65,7 +65,7 @@ export const TechnologiesSelect = ({
                     <X
                       className="cursor-pointer mt-px size-3"
                     />
-                  </button>
+                  </div>
                 </Badge>
               );
             })}
