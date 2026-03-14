@@ -1,4 +1,3 @@
-import { Technology } from "@/types";
 import { z } from "zod";
 
 export const projectSchema = z.object({
@@ -8,4 +7,9 @@ export const projectSchema = z.object({
   technologies: z.array(z.string()).min(1, "Select at least one technology"),
   type: z.string().min(1, "Type is required"),
   images: z.array(z.instanceof(File)).min(1, "At least one image is required")
+});
+
+export const technologySchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  svg: z.string().min(1, "Svg path is required"),
 });

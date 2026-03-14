@@ -65,7 +65,7 @@ export const AdminAccessModal = () => {
         showCloseButton={false}
         style={{ cursor: "none" }}
         aria-describedby={undefined}
-        className="bg-mainColor border-0 rounded-2xl max-w-[80%] sm:max-w-[350px] pb-4! px-4! text-descColor">
+        className="bg-mainColor border-0 rounded-2xl max-w-[80%] sm:max-w-87.5 pb-4! px-4! text-descColor">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl sm:text-4xl font-bold">Admin</DialogTitle>
           <div
