@@ -25,15 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressContentEditableWarning suppressHydrationWarning>
       <head>
         <link rel="shortcut icon" href="/favicon-logo.svg" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon-logo.svg" type="image/x-icon" />
       </head>
-      <body
-        className={`${poppins.variable} ${inter.variable} antialiased relative`}
-      // style={{ cursor: "none", overflow: "unset" }}
-      >
+      <body suppressContentEditableWarning suppressHydrationWarning className={`${poppins.variable} ${inter.variable} antialiased relative`}>
         <main>
           {children}
         </main>
