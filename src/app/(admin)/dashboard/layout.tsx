@@ -1,7 +1,10 @@
 import { AdminNavbar } from '@/components/admin/navbar';
 import { DashboardSidebar } from '@/components/admin/sidebar';
+import { Metadata } from 'next';
 import React from 'react'
-
+export const metadata: Metadata = {
+  title: "Dashboard | Abduraxmon Tojixo'jayev",
+};
 const DashboardLayout = ({
   children,
 }: Readonly<{
