@@ -119,7 +119,7 @@ export const HeaderSection = () => {
                 <Input
                   {...register("resume.text")}
                   id="resume.text"
-                  placeholder="Frontend Developer"
+                  placeholder="Resume text"
                   className="h-9 rounded-md placeholder:opacity-50"
                 />
               </div>
@@ -130,7 +130,7 @@ export const HeaderSection = () => {
                 <Input
                   {...register("resume.path")}
                   id="resume.path"
-                  placeholder="Frontend Developer"
+                  placeholder="Resume path"
                   className="h-9 rounded-md placeholder:opacity-50"
                 />
               </div>
