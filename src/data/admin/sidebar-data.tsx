@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Cpu, ScrollText, SlidersHorizontal } from "lucide-react";
+import { BriefcaseBusiness, Cpu, ScrollText, SlidersHorizontal, Table2 } from "lucide-react";
 
 export const sidebarLinks = [
   {
@@ -20,5 +20,10 @@ export const sidebarLinks = [
     label: "Skills",
     path: "/skills",
     icon: <Cpu />
+  },
+  {
+    label: "Contact form",
+    path: "/contact-form",
+    icon: <Table2 />
   }
 ]
