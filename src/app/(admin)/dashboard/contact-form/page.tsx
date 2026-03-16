@@ -17,7 +17,7 @@ const ContactForm = () => {
       <a
         href={url}
         target="_blank"
-        className="px-3 py-2 bg-blue-600 text-white rounded"
+        className="md:hidden px-3 py-2 bg-blue-600 text-white rounded"
       >
         Open in Google Sheets
       </a>
