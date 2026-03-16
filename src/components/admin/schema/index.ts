@@ -13,3 +13,28 @@ export const technologySchema = z.object({
   title: z.string().min(1, "Title is required"),
   svg: z.string().min(1, "Svg path is required"),
 });
+
+export const mainInfoSchema = z.object({
+  badge: z
+    .string()
+    .min(1, { message: "Badge is required" }),
+  fio: z
+    .string()
+    .min(1, { message: "Full name is required" }),
+  pic: z
+    .string()
+    .min(1, { message: "Picture is required" }),
+  desc: z
+    .string()
+    .min(1, { message: "Description is required" }),
+  resume: z.object({
+    text: z
+      .string()
+      .min(1, { message: "Resume text is required" }),
+    path: z
+      .string()
+      .min(1, { message: "Resume path is required" })
+    // Agar URL bo‘lishi kerak bo‘lsa, quyidagicha yozish mumkin:
+    // .url({ message: "Resume path must be a valid URL" })
+  }),
+});

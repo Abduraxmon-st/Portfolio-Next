@@ -151,7 +151,7 @@ export const ProjectModal = ({ project, open, setOpen }: props) => {
                   <label htmlFor="title" className={`text-xs font-medium ${errors.description && "text-red-600"}`}>{errors.description ? errors.description.message : "Description"}</label>
                   <Textarea
                     {...register("description")}
-                    placeholder="Project descritpion"
+                    placeholder="Project description"
                     className={`text-descColor placeholder:text-descColor/50`}
                   />
                 </div>
