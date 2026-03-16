@@ -1,5 +1,6 @@
 const GoogleSheeturl = process.env.GOOGLE_SHEETS_FRAME_URL
 const ContactForm = () => {
+  const url = GoogleSheeturl ? GoogleSheeturl : "https://youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"
   return (
     <div className="size-full">
       <iframe
@@ -11,7 +12,15 @@ const ContactForm = () => {
           borderRadius: "8px",
           border: 0
         }}
-        src={GoogleSheeturl ? GoogleSheeturl : "https://youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1"} />
+        className="hidden md:block"
+        src={url} />
+      <a
+        href={url}
+        target="_blank"
+        className="px-3 py-2 bg-blue-600 text-white rounded"
+      >
+        Open in Google Sheets
+      </a>
     </div>
   )
 }
