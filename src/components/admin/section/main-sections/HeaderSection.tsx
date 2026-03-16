@@ -114,7 +114,7 @@ export const HeaderSection = () => {
             <div className="grid sm:grid-cols-2 gap-3 mt-4">
               <div>
                 <label htmlFor="resume.text" className={`text-xs font-medium ${errors.resume?.text && "text-red-600"}`}>
-                  {errors.resume?.text ? errors.resume.text.message : "Resume path"}
+                  {errors.resume?.text ? errors.resume.text.message : "Resume text"}
                 </label>
                 <Input
                   {...register("resume.text")}
@@ -125,7 +125,7 @@ export const HeaderSection = () => {
               </div>
               <div>
                 <label htmlFor="resume.path" className={`text-xs font-medium ${errors.resume?.path && "text-red-600"}`}>
-                  {errors.resume?.path ? errors.resume.path.message : "Resume text"}
+                  {errors.resume?.path ? errors.resume.path.message : "Resume path"}
                 </label>
                 <Input
                   {...register("resume.path")}
