@@ -79,7 +79,17 @@ const SkillsPage = () => {
                 >
                   {
                     (openEdit && (toolI === tool)) ?
-                      <input type="text" className="ring-0 outline-0 border-0 w-max max-w-30" />
+                      <input
+                        type="text"
+                        className="ring-0 outline-0 border-0 w-max max-w-30"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            console.log("Edited:", toolI, "to:", e.currentTarget.value);
+                            setOpenEdit(false)
+                            setTool(null)
+                          }
+                        }}
+                      />
                       : tool
                   }
                 </Badge>
