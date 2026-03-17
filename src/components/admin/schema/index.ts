@@ -38,3 +38,11 @@ export const mainInfoSchema = z.object({
     // .url({ message: "Resume path must be a valid URL" })
   }),
 });
+
+export const aboutSchema = z.object({
+  pic: z.string().min(1, { message: "Picture is required" }),
+  desc: z.string().min(1, "Description is required"),
+  experience: z.string().min(1, "Experience is required"),
+  location: z.string().min(1, "Location is required"),
+  specialization: z.string().min(1, "Specialization is required"),
+});
