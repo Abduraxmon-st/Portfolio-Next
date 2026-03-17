@@ -140,6 +140,13 @@
   }
 }
 
+/* Spinnerlarni o‘chirish */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .to-top {
   animation: easeOutElastic 1s ease-in forwards;
 }

@@ -53,9 +53,10 @@ export const contactSchema = z.object({
     .min(1, "Email is required")
     .email("Invalid email format"),
 
-  phone: z
-    .string()
-    .regex(/^\d{9}$/, "Phone must be exactly 9 digits"),
+  phone: z.string()
+    .length(9, "9 ta raqam bo‘lishi kerak")
+    .regex(/^\d+$/, "Faqat raqam bo‘lishi kerak")
+    .transform((val) => `+998${val}`),
 
   telegram: z
     .string()

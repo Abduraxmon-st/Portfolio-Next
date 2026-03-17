@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,7 +8,7 @@ import { contactSchema } from "../../schema";
 import z from "zod";
 const contactInfo = {
   email: "tojixojayevabduraxmon@gmail.com",
-  phone: "9772168861",
+  phone: "977216861",
   telegram: "https://t.me/Tojixojayev_099"
 }
 export type contactInfoType = z.infer<typeof contactSchema>;
@@ -44,7 +45,7 @@ export const ContactSection = () => {
   }, [contactInfo, reset]);
   return (
     <div>
-      <form className="bg-mainColor/40 p-3 rounded-md">
+      <form onSubmit={handleSubmit((data) => console.log(data))} className="bg-mainColor/40 p-3 rounded-md">
         <div className="flex gap-2 justify-end items-center">
           <p className="text-lg md:text-xl flex-1 pl-2">Contact info</p>
           <Button
@@ -74,10 +75,10 @@ export const ContactSection = () => {
                   className="h-9 rounded-md placeholder:opacity-50"
                 />
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 <div className="col-span-1">
                   <label htmlFor="telegram" className={`text-xs font-medium ${errors.telegram && "text-red-600"}`}>
-                    {errors.telegram ? errors.telegram.message : "telegram"}
+                    {errors.telegram ? errors.telegram.message : "Telegram"}
                   </label>
                   <Input
                     {...register("telegram")}
@@ -86,14 +87,17 @@ export const ContactSection = () => {
                     className="h-9 rounded-md placeholder:opacity-50"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1">
                   <label htmlFor="phone" className={`text-xs font-medium ${errors.phone && "text-red-600"}`}>
                     {errors.phone ? errors.phone.message : "Phone number"}
                   </label>
                   <Input
                     {...register("phone")}
                     id="phone"
-                    placeholder="Tashkent, Uzbekistan"
+                    type="number"
+                    placeholder="+998 00 000 00 00"
+                    inputMode="numeric"
+                    pattern="[0-9]{9}"
                     className="h-9 rounded-md placeholder:opacity-50"
                   />
                 </div>
