@@ -46,3 +46,18 @@ export const aboutSchema = z.object({
   location: z.string().min(1, "Location is required"),
   specialization: z.string().min(1, "Specialization is required"),
 });
+
+export const contactSchema = z.object({
+  email: z
+    .string()
+    .min(1, "Email is required")
+    .email("Invalid email format"),
+
+  phone: z
+    .string()
+    .regex(/^\d{9}$/, "Phone must be exactly 9 digits"),
+
+  telegram: z
+    .string()
+    .min(1, "Telegram is required"),
+});
