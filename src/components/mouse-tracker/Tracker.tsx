@@ -31,17 +31,22 @@ export default function Tracker() {
 
   return (
     <div
-      className="fixed z-51 rounded-full pointer-events-none  flex items-center justify-center border-2 border-thirtyColor/50 bg-thirtyColor/10 mix-blend-difference"
+      className="fixed z-9999 rounded-full pointer-events-none  flex items-center justify-center bg-cyan-400/10 mix-blend-difference"
       style={{
-        width: hovered ? 42 : 32,
-        height: hovered ? 42 : 32,
+        width: hovered ? 56 : 36,
+        height: hovered ? 56 : 36,
+        border: `${hovered ? 3 : 2}px solid oklch(78.9% 0.154 211.53)`,
         transform: `translate(${cursor.x}px, ${cursor.y}px)`,
         backgroundColor: hovered ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.1)",
-        transition: "width 0.15s ease-in, height 0.15s ease-in, background-color 0.25s ease-in",
+        transition: "width 0.25s ease-out, height 0.25s ease-out, background-color 0.25s ease-in",
       }}
     >
       {/* Vertical line */}
-      <Plus className="size-4.5 text-thirtyColor/50" strokeWidth={2} />
+      <Plus
+        className={`text-cyan-400 transition-all duration-250 ${hovered ? "size-7.5" : "size-4.5"
+          }`}
+      // strokeWidth={2}
+      />
     </div>
   );
 }
