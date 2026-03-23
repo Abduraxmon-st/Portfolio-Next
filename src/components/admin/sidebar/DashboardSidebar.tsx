@@ -23,7 +23,7 @@ export const DashboardSidebar = ({ className }: { className?: string }) => {
       style={{
         width: sidebarToggle(openSidebar),
       }}
-      className={`flex flex-col pt-2.5 lg:pt-4 transition-all duration-300 overflow-hidden ${className}`}>
+      className={`flex flex-col pt-2.5 lg:pt-4 transition-all duration-300 overflow-hidden border border-borderColor/50 ${className}`}>
       <div
         style={{
           paddingInline: tablet ? 13 : openSidebar ? 13 : 16

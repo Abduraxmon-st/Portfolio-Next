@@ -24,7 +24,7 @@ export const AdminNavbar = () => {
   }
   return (
     <nav>
-      <div className="flex items-center justify-between bg-borderColor/50 text-descColor! rounded-md lg:rounded-xl py-2.5 lg:py-3.25 pl-4 lg:pl-6 pr-2 lg:pr-3">
+      <div className="flex items-center justify-between bg-borderColor/50 text-descColor! rounded-md lg:rounded-xl py-2.5 lg:py-3.25 pl-4 lg:pl-6 pr-2 lg:pr-3 border-b border-borderColor">
         <h3 className="text-xl lg:text-[22px] font-bold tracking-wide capitalize">
           {pathname.slice(11) ?? ""}
         </h3>
