@@ -38,7 +38,7 @@ export const Footer = () => {
               </a>
             </OnViewAnimation>
             <OnViewAnimation duration={1.2} translateY={50}>
-              <a style={{ cursor: "none" }} target="_blank" href="tel:+998000000000" className="flex items-start gap-3 sm:gap-4 w-full group">
+              <a style={{ cursor: "none" }} target="_blank" href="tel:+998977216861" className="flex items-start gap-3 sm:gap-4 w-full group">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-cyan-400 group-hover:bg-cyan-400/10 transition-all duration-300 shrink-0">
                   <PhoneOutgoing size={20} className="text-descColor group-hover:text-cyan-400 transition-all duration-300" />
                 </div>
