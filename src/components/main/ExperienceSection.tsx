@@ -1,3 +1,4 @@
+"use client"
 import OnViewAnimation from "../onload-animation/onviewAnimation"
 
 export const ExperienceSection = () => {
@@ -7,7 +8,7 @@ export const ExperienceSection = () => {
         <h2 className="main-title">Experience</h2>
       </OnViewAnimation>
       <div>
-        
+
       </div>
     </div>
   )

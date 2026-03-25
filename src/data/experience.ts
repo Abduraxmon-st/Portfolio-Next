@@ -6,7 +6,7 @@ export const experiences: Experience[] = [
     type: "on-site",
     title: "Frontend Developer",
     corpName: "Tenzorsoft",
-    desc: "Working as a Frontend Developer focused on building high-performance landing pages, data-intensive dashboards, and integrating AI-powered features. Emphasizing scalability, performance optimization, and delivering seamless user experiences.",
+    desc: "Working as a Frontend Developer focused on building high-performance and data-intensive dashboards, landings, and integrating AI-powered features. Emphasizing scalability, performance optimization, and delivering seamless user experiences.",
     keys: [
       "Developing high-converting and performance-optimized landing pages",
       "Building complex, data-driven dashboards with real-time and high-volume data handling",
