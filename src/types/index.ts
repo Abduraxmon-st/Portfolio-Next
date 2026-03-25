@@ -12,3 +12,13 @@ export type Project = {
   technologies: Technology[];
   images: string[];
 };
+
+export type Experience = {
+  date: string;
+  type: "remote" | "on-site" | "full-time" | "part-time" | "hybrid";
+  title: string;
+  corpName: string;
+  desc: string;
+  keys: string[];
+  technologies: string[];
+};

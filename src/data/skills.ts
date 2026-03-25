@@ -13,7 +13,7 @@ export const front = [
   "Tanstack query",
   "Zustand",
   "Zod",
-  "Framer Motion"//
+  "Framer Motion"
 ]
 export const tools = [
   "Git",
