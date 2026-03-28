@@ -15,7 +15,7 @@ export type Project = {
 
 export type Experience = {
   date: string;
-  type: "remote" | "on-site" | "full-time" | "part-time" | "hybrid";
+  type: "Remote" | "On-site" | "Full-time" | "Part-time" | "Hybrid";
   title: string;
   corpName: string;
   desc: string;

@@ -3,7 +3,7 @@ import { Experience } from "@/types";
 export const experiences: Experience[] = [
   {
     date: "February 2026 - Present",
-    type: "on-site",
+    type: "On-site",
     title: "Frontend Developer",
     corpName: "Tenzorsoft",
     desc: "Working as a Frontend Developer focused on building high-performance and data-intensive dashboards, landings, and integrating AI-powered features. Emphasizing scalability, performance optimization, and delivering seamless user experiences.",
@@ -22,12 +22,14 @@ export const experiences: Experience[] = [
       "Tailwind CSS",
       "Sass",
       "Tanstack query",
+      "Zustand",
+      "Zod",
       "Hight charts"
     ],
   },
   {
     date: "July 2025 - January 2026",
-    type: "on-site",
+    type: "On-site",
     title: "Frontend Developer",
     corpName: "Uproject",
     desc: "Worked as a Frontend Developer building scalable and high-performance web applications. Focused on creating modern UI/UX, optimizing performance, and integrating APIs with clean architecture.",
