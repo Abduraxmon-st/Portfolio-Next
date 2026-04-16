@@ -1,4 +1,3 @@
-import { lights } from '@/assets/images';
 import { AdminAccessModal } from '@/components/admin/modal/AdminAccessModal';
 import { Container } from '@/components/container';
 import { Footer } from '@/components/footer';
@@ -7,8 +6,8 @@ import { Navbar } from '@/components/navbar';
 import PageLoadAnimation from '@/components/onload-animation/onLoadAnimation';
 import { ToTopButton } from '@/components/to-top/ToTopButton';
 import { CursorProvider } from '@/context/CursorContext';
-import Image from 'next/image';
 import React from 'react'
+import LightRays from '@/components/lightRays/LightRays';
 
 const UserLayout = ({
   children,
@@ -19,11 +18,28 @@ const UserLayout = ({
     <div className='relative' style={{ cursor: "none", overflow: "unset" }}>
       <CursorProvider>
         <AdminAccessModal />
-        <PageLoadAnimation duration={1.5} translateY={-250}>
+        {/* <PageLoadAnimation duration={1.5} translateY={-250}>
           <Image loading="eager" src={lights} alt="lights" className="hidden nc1:block absolute w-[40%] -z-1" />
         </PageLoadAnimation>
         <PageLoadAnimation duration={1.5} translateY={-250}>
           <Image loading="eager" src={lights} alt="lights" className="absolute right-0 -scale-x-100 w-full h-screen nc1:h-auto nc1:w-[40%] -z-1" />
+        </PageLoadAnimation> */}
+        <PageLoadAnimation duration={3} translateY={-250}>
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#ffffff90"
+            raysSpeed={0.5}
+            lightSpread={0.5}
+            rayLength={3}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0}
+            distortion={0}
+            className="custom-rays"
+            pulsating={false}
+            fadeDistance={2}
+            saturation={2}
+          />
         </PageLoadAnimation>
         <Tracker />
         <Container>
