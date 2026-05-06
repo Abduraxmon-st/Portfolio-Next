@@ -197,7 +197,7 @@ export function generateWebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
-    alternateName: ["Portfolio", "portfolio"],
+    alternateName: ["Tojixojayev Abduraxmon", "Tojixojayev-Abduraxmon", "Abduraxmon Tojixojayev", "Abduraxmon-Tojixojayev", "tojixojayev", "abduraxmon", "tojixojayev-abduraxmon"],
     url: getAbsoluteUrl("/"),
   };
 }
