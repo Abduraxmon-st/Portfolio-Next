@@ -1,7 +1,4 @@
-
 User-agent: *
 Allow: /
-Sitemap: https://tojixojayev-abduraxmon.vercel.app/sitemap.xml
 
-# If you have staging or admin areas, you can disallow them here, for example:
-# Disallow: /(admin)/
+Sitemap: https://tojixojayev-abduraxmon.vercel.app/sitemap.xml
