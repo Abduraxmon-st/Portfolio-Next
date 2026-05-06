@@ -1,0 +1,17 @@
+{
+  "home": {
+    "title": "Abduraxmon Tojixojayev — Frontend Developer",
+    "description": "Portfolio of Abduraxmon Tojixojayev — frontend developer specializing in Next.js, TypeScript, and modern web interfaces. View projects, experience, and contact information.",
+    "keywords": ["portfolio", "frontend developer", "Next.js", "TypeScript", "React", "Abduraxmon Tojixojayev", "web developer"]
+  },
+  "portfolio": {
+    "title": "Projects — Abduraxmon Tojixojayev",
+    "description": "A selection of projects built with Next.js, React and modern web technologies. Case studies and links to live demos.",
+    "keywords": ["projects", "portfolio projects", "case studies", "Next.js projects", "frontend portfolio"]
+  },
+  "not-found": {
+    "title": "Page Not Found — Portfolio",
+    "description": "The page you're looking for cannot be found. Return to the portfolio home to see projects and contact info.",
+    "keywords": ["page not found", "portfolio", "404"]
+  }
+}

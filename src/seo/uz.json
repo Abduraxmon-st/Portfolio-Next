@@ -1,0 +1,29 @@
+{
+  "home": {
+    "title": "Abduraxmon Tojixojayev — Frontend Dasturchi",
+    "description": "Abduraxmon Tojixojayev portfoliysi — Next.js, TypeScript va zamonaviy web interfeyslar bo'yicha frontend dasturchi.",
+    "keywords": [
+      "portfolio",
+      "frontend dasturchi",
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Abduraxmon Tojixojayev"
+    ]
+  },
+  "portfolio": {
+    "title": "Loyihalar — Abduraxmon Tojixojayev",
+    "description": "Next.js va boshqa zamonaviy texnologiyalar bilan yaratilgan loyihalar to'plami. Case-study va demo havolalar.",
+    "keywords": [
+      "loyihalar",
+      "portfolio loyihalar",
+      "Next.js loyihalar",
+      "frontend portfolio"
+    ]
+  },
+  "not-found": {
+    "title": "Sahifa topilmadi — Portfolio",
+    "description": "Sahifa topilmadi. Loyihalarni va kontaktlarni ko'rish uchun portfolio bosh sahifasiga qayting.",
+    "keywords": ["sahifa topilmadi", "portfolio", "404"]
+  }
+}
