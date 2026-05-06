@@ -20,10 +20,10 @@ const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "Abduraxmon Tojixo'jayev - Frontend Developer",
-  description: "Building reliable and intuitive digital experiences using React and Next.js. Passionate about writing clean code and improving frontend architecture.",
-};
+// export const metadata: Metadata = {
+//   title: "Abduraxmon Tojixo'jayev - Frontend Developer",
+//   description: "Building reliable and intuitive digital experiences using React and Next.js. Passionate about writing clean code and improving frontend architecture.",
+// };
 
 export async function generateMetadata(): Promise<Metadata> {
   return generatePageMetadata(defaultLocale, "/");
