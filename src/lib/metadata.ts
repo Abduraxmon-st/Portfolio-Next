@@ -65,7 +65,7 @@ const allPublicImages = [organizationLogoPath].concat(
   Object.values(PUBLIC_IMAGES).flat(),
 );
 
-const googleVerification = "eQBMenZkrvXZokZ1vFEfwzLdWaosxC4gZJWHsttSlGU";
+const googleVerification = "GCWt88WcRHaOq69Rx6e_MARL11pWsOfsbfQAPbqOtsk";
 
 const localeToOpenGraphLocale: Record<Locale, string> = {
   en: "en_US",
