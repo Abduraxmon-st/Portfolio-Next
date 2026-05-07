@@ -1,42 +1,32 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
 import { slugify } from "@/hooks/useSlugify";
-import { locales, defaultLocale, localizePathname } from "@/seo/config";
 import { getAbsoluteUrl } from "@/lib/metadata";
 
-function buildUrl(loc: string) {
-  return (path: string) => {
-    const localized = localizePathname(path, loc as typeof defaultLocale);
-    return getAbsoluteUrl(localized);
-  };
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", "/portfolio"];
+  const lastModified = new Date();
 
-  const urls: MetadataRoute.Sitemap = [];
+  const pages: MetadataRoute.Sitemap = [
+    {
+      url: getAbsoluteUrl("/"),
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: getAbsoluteUrl("/portfolio"),
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+  ];
 
-  for (const loc of locales) {
-    const toUrl = buildUrl(loc);
+  const projectPages: MetadataRoute.Sitemap = projects.map((p) => ({
+    url: getAbsoluteUrl(`/portfolio/${slugify(p.title)}`),
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
 
-    for (const page of pages) {
-      urls.push({
-        url: toUrl(page),
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: page === "/" ? 1 : 0.9,
-      });
-    }
-
-    for (const p of projects) {
-      urls.push({
-        url: toUrl(`/portfolio/${slugify(p.title)}`),
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.8,
-      });
-    }
-  }
-
-  return Array.from(new Map(urls.map((item) => [item.url, item])).values());
+  return [...pages, ...projectPages];
 }
