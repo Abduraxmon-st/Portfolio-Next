@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import { defaultLocale, isLocale, type Locale } from "@/seo/config";
 import { seo, type SeoKey } from "@/seo";
 
-const siteName = "Tojixojayev Abduraxmon";
-const siteUrl = "https://tojixojayev-abduraxmon.vercel.app"; // production URL
-// logo path (use SVG favicon)
-const organizationLogoPath = "/favicon-logo.svg";
+export const siteName = "Abduraxmon Tojixojayev";
+export const siteUrl = "https://tojixojayev-abduraxmon.vercel.app";
+
+const svgLogoPath = "/favicon-logo.svg";
+const organizationLogoPath = "/favicon-logo.png";
+const organizationLogo = {
+  url: organizationLogoPath,
+  width: 192,
+  height: 192,
+  alt: `${siteName} logo`,
+};
 
 // Public images grouped by folder
 export const PUBLIC_IMAGES = {
@@ -60,11 +67,6 @@ export const PUBLIC_IMAGES = {
   ],
 };
 
-// flattened list for Open Graph
-const allPublicImages = [organizationLogoPath].concat(
-  Object.values(PUBLIC_IMAGES).flat(),
-);
-
 const googleVerification = "GCWt88WcRHaOq69Rx6e_MARL11pWsOfsbfQAPbqOtsk";
 
 const localeToOpenGraphLocale: Record<Locale, string> = {
@@ -75,6 +77,7 @@ const localeToOpenGraphLocale: Record<Locale, string> = {
 
 const pathToSeoKey: Record<string, SeoKey> = {
   "/": "home",
+  "/home": "home",
   "1": "home",
   "/portfolio": "portfolio",
   "/not-found": "not-found",
@@ -121,7 +124,9 @@ export async function generatePageMetadata(
 ): Promise<Metadata> {
   const currentLocale = normalizeLocale(locale);
   const normalizedPath = normalizePath(path);
-  const seoKey = pathToSeoKey[normalizedPath] ?? "home";
+  const seoKey =
+    pathToSeoKey[normalizedPath] ??
+    (normalizedPath.startsWith("/portfolio/") ? "portfolio" : "home");
   const seoContent = seo[currentLocale][seoKey] ?? seo[defaultLocale][seoKey];
   const title = seoContent.title;
   const description = seoContent.description;
@@ -151,21 +156,22 @@ export async function generatePageMetadata(
       siteName,
       locale: localeToOpenGraphLocale[currentLocale],
       type: "website",
-      images: allPublicImages.map((u) => ({ url: u, width: 1920, height: 1080, alt: siteName })),
+      images: [organizationLogo],
     },
     twitter: {
       card: "summary",
       title,
       description,
+      images: [organizationLogoPath],
     },
     icons: {
       icon: [
-        { url: organizationLogoPath, sizes: "180x180", type: "image/png" },
-        { url: "/logo.svg", type: "image/svg+xml" },
         { url: "/favicon.ico", sizes: "any" },
+        { url: svgLogoPath, type: "image/svg+xml" },
+        { url: organizationLogoPath, sizes: "192x192", type: "image/png" },
       ],
-      shortcut: "/logo.svg",
-      apple: organizationLogoPath,
+      shortcut: "/favicon.ico",
+      apple: [{ url: organizationLogoPath, sizes: "192x192", type: "image/png" }],
     },
     robots: {
       index: true,
@@ -173,7 +179,21 @@ export async function generatePageMetadata(
     },
   };
 
-  return { ...base, ...overrides };
+  const merged: Metadata = { ...base, ...overrides };
+
+  if (overrides?.alternates) {
+    merged.alternates = { ...base.alternates, ...overrides.alternates };
+  }
+
+  if (overrides?.openGraph) {
+    merged.openGraph = { ...base.openGraph, ...overrides.openGraph };
+  }
+
+  if (overrides?.twitter) {
+    merged.twitter = { ...base.twitter, ...overrides.twitter };
+  }
+
+  return merged;
 }
 
 export function generateOrganizationJsonLd() {
@@ -186,8 +206,8 @@ export function generateOrganizationJsonLd() {
       "@type": "ImageObject",
       url: getAbsoluteUrl(organizationLogoPath),
       contentUrl: getAbsoluteUrl(organizationLogoPath),
-      width: 180,
-      height: 180,
+      width: organizationLogo.width,
+      height: organizationLogo.height,
     },
   };
 }
@@ -197,7 +217,36 @@ export function generateWebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
-    alternateName: ["Tojixojayev Abduraxmon", "Tojixojayev-Abduraxmon", "Abduraxmon Tojixojayev", "Abduraxmon-Tojixojayev", "tojixojayev", "abduraxmon", "tojixojayev-abduraxmon"],
+    alternateName: [
+      "Tojixojayev Abduraxmon",
+      "Tojixojayev Abdurahmon",
+      "Abduraxmon Tojixojayev",
+      "Abdurahmon Tojixojayev",
+      "Tojixojayev-Abduraxmon",
+      "Abduraxmon-Tojixojayev",
+      "tojixojayev",
+      "abduraxmon",
+      "abdurahmon",
+      "tojixojayev-abduraxmon",
+    ],
     url: getAbsoluteUrl("/"),
+  };
+}
+
+export function generatePersonJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteName,
+    alternateName: [
+      "Tojixojayev Abduraxmon",
+      "Tojixojayev Abdurahmon",
+      "Abduraxmon Tojixojayev",
+      "Abdurahmon Tojixojayev",
+    ],
+    url: getAbsoluteUrl("/home"),
+    image: getAbsoluteUrl(organizationLogoPath),
+    jobTitle: "Frontend Developer",
+    email: "mailto:tojixojayevabduraxmon@gmail.com",
   };
 }

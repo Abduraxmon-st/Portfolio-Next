@@ -6,6 +6,7 @@ import {
   generatePageMetadata,
   generateWebsiteJsonLd,
   generateOrganizationJsonLd,
+  generatePersonJsonLd,
 } from "@/lib/metadata";
 
 const poppins = Poppins({
@@ -37,19 +38,26 @@ export default function RootLayout({
   return (
     <html lang="en" suppressContentEditableWarning suppressHydrationWarning>
       <head>
-        <link rel="shortcut icon" href="/favicon-logo.svg" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/favicon-logo.svg" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon-logo.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/favicon-logo.png" sizes="192x192" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(generateWebsiteJsonLd()),
           }}
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(generateOrganizationJsonLd()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generatePersonJsonLd()),
           }}
         />
       </head>
