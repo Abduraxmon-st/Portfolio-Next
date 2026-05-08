@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages: MetadataRoute.Sitemap = [
     {
-      url: getAbsoluteUrl("/"),
+      url: "https://tojixojayev-abduraxmon.vercel.app",
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
