@@ -20,7 +20,7 @@ export const AdminNavbar = () => {
 
   const handleConfirmLogout = () => {
     deleteCookie("ADMIN_ACCESS_PORT")
-    router.push("/home")
+    router.push("/")
   }
   return (
     <nav>

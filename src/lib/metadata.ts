@@ -77,7 +77,6 @@ const localeToOpenGraphLocale: Record<Locale, string> = {
 
 const pathToSeoKey: Record<string, SeoKey> = {
   "/": "home",
-  "/home": "home",
   "1": "home",
   "/portfolio": "portfolio",
   "/not-found": "not-found",
@@ -244,7 +243,7 @@ export function generatePersonJsonLd() {
       "Abduraxmon Tojixojayev",
       "Abdurahmon Tojixojayev",
     ],
-    url: getAbsoluteUrl("/home"),
+    url: getAbsoluteUrl("/"),
     image: getAbsoluteUrl(organizationLogoPath),
     jobTitle: "Frontend Developer",
     email: "mailto:tojixojayevabduraxmon@gmail.com",

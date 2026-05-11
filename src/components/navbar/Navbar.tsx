@@ -11,7 +11,7 @@ import PageLoadAnimation from "../onload-animation/onLoadAnimation";
 export const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/home";
+  const isHome = pathname === "/";
   const { setHovered } = useCursor()
   useEffect(() => {
     const toggleVisibility = () => {
@@ -38,14 +38,14 @@ export const Navbar = () => {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
               >
-                <Link style={{ cursor: "none" }} href="/home">
+                <Link style={{ cursor: "none" }} href="/">
                   <Logo />
                 </Link>
               </div>
             )
           }
           <div className="flex items-center justify-center gap-5">
-            <NavbarLink href="/home" children={"Home"} />
+            <NavbarLink href="/" children={"Home"} />
             <NavbarLink href="/portfolio" children={"Portfolio"} />
             {/* <div
               onMouseEnter={() => setHovered(true)}

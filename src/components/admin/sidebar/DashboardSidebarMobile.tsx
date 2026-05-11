@@ -35,7 +35,7 @@ export const DashboardSidebarMobile = () => {
             )
           })}
           <Link
-            href="/home"
+            href="/"
             className="mt-auto flex items-center gap-2 hover:bg-thirtyColor/12 p-2 rounded-lg text-descColor overflow-hidden transition-all">
             <div className="size-6">
               <Home />

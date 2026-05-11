@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages: MetadataRoute.Sitemap = [
     {
-      url: getAbsoluteUrl("/home"),
+      url: getAbsoluteUrl("/"),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,

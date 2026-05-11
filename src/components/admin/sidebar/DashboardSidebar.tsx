@@ -59,7 +59,7 @@ export const DashboardSidebar = ({ className }: { className?: string }) => {
           style={{
             marginBottom: tablet ? 4 : openSidebar ? 4 : 16
           }}
-          href="/home"
+          href="/"
           className="mt-auto flex items-center gap-2 hover:bg-thirtyColor/12 p-2 rounded-lg text-descColor overflow-hidden transition-all">
           <div className="size-6">
             <Home />

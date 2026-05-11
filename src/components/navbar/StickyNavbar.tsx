@@ -57,14 +57,14 @@ export const StickyNavbar = ({
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             >
-              <Link style={{ cursor: "none" }} href="/home">
+              <Link style={{ cursor: "none" }} href="/">
                 <Logo />
               </Link>
             </div>
           )}
 
           <div className="flex items-center justify-center gap-4 xl:gap-5">
-            <NavbarLink href="/home">Home</NavbarLink>
+            <NavbarLink href="/">Home</NavbarLink>
             <NavbarLink href="/portfolio">Portfolio</NavbarLink>
             <NavbarLink href="/Tojixojayev Abduraxmon's resume.pdf" download children={"Resume"} />
           </div>

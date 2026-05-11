@@ -31,7 +31,7 @@ const ProjectsPage = () => {
       <div className="flex items-center justify-center mt-10 pt-10 border-t border-borderColor">
         <a
           style={{ cursor: "none" }}
-          href="/home"
+          href="/"
           className="w-max">
           <ContactButton className="py-6! xl:py-7! rounded-full!">
             Back to Home
