@@ -5,6 +5,9 @@ import { getAbsoluteUrl } from "@/lib/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const allProjectImages = [
+    ...new Set(projects.flatMap((project) => project.images)),
+  ].map(getAbsoluteUrl);
 
   const pages: MetadataRoute.Sitemap = [
     {
@@ -12,12 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
+      images: [getAbsoluteUrl("/favicon-logo.png"), ...allProjectImages],
     },
     {
       url: getAbsoluteUrl("/portfolio"),
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
+      images: allProjectImages,
     },
   ];
 
@@ -26,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: "monthly",
     priority: 0.8,
+    images: p.images.map(getAbsoluteUrl),
   }));
 
   return [...pages, ...projectPages];
