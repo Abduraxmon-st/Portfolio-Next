@@ -165,11 +165,11 @@ export async function generatePageMetadata(
     },
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
-        { url: svgLogoPath, type: "image/svg+xml" },
         { url: organizationLogoPath, sizes: "192x192", type: "image/png" },
+        { url: svgLogoPath, type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       ],
-      shortcut: "/favicon.ico",
+      shortcut: organizationLogoPath,
       apple: [{ url: organizationLogoPath, sizes: "192x192", type: "image/png" }],
     },
     robots: {
