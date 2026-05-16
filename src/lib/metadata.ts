@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { defaultLocale, isLocale, type Locale } from "@/seo/config";
 import { seo, type SeoKey } from "@/seo";
 
 export const siteName = "Abduraxmon Tojixojayev";
@@ -69,11 +68,8 @@ export const PUBLIC_IMAGES = {
 
 const googleVerification = "GCWt88WcRHaOq69Rx6e_MARL11pWsOfsbfQAPbqOtsk";
 
-const localeToOpenGraphLocale: Record<Locale, string> = {
-  en: "en_US",
-  ru: "ru_RU",
-  uz: "uz_UZ",
-};
+const openGraphLocale = "en_US";
+const maxKeywordCount = 30;
 
 const pathToSeoKey: Record<string, SeoKey> = {
   "/": "home",
@@ -104,10 +100,6 @@ export function getAbsoluteUrl(path: string) {
   return new URL(path, metadataBase).toString();
 }
 
-function normalizeLocale(locale?: string | null): Locale {
-  return locale && isLocale(locale) ? locale : defaultLocale;
-}
-
 function normalizePath(path?: string) {
   if (!path || path === "1") {
     return "/";
@@ -117,19 +109,17 @@ function normalizePath(path?: string) {
 }
 
 export async function generatePageMetadata(
-  locale: string = defaultLocale,
   path: string = "/",
   overrides?: Partial<Metadata>,
 ): Promise<Metadata> {
-  const currentLocale = normalizeLocale(locale);
   const normalizedPath = normalizePath(path);
   const seoKey =
     pathToSeoKey[normalizedPath] ??
     (normalizedPath.startsWith("/portfolio/") ? "portfolio" : "home");
-  const seoContent = seo[currentLocale][seoKey] ?? seo[defaultLocale][seoKey];
+  const seoContent = seo[seoKey] ?? seo.home;
   const title = seoContent.title;
   const description = seoContent.description;
-  const keywords = seoContent.keywords.slice(0, 30);
+  const keywords = seoContent.keywords.slice(0, maxKeywordCount);
   const metadataBase = getMetadataBase();
 
   const base: Metadata = {
@@ -153,7 +143,7 @@ export async function generatePageMetadata(
       description,
       ...(metadataBase ? { url: normalizedPath } : {}),
       siteName,
-      locale: localeToOpenGraphLocale[currentLocale],
+      locale: openGraphLocale,
       type: "website",
       images: [organizationLogo],
     },

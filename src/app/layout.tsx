@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css"
-import { defaultLocale } from "@/seo/config";
 import {
   generatePageMetadata,
   generateWebsiteJsonLd,
@@ -27,7 +26,7 @@ const inter = Inter({
 // };
 
 export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata(defaultLocale, "/");
+  return generatePageMetadata("/");
 }
 
 export default function RootLayout({

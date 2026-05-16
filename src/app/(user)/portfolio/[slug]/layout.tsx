@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { projects } from "@/data/projects";
 import { slugify } from "@/hooks/useSlugify";
 import { generatePageMetadata } from "@/lib/metadata";
-import { defaultLocale } from "@/seo/config";
 
 type ProjectLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -17,14 +16,14 @@ export async function generateMetadata({
   const project = projects.find((item) => slugify(item.title) === slug);
 
   if (!project) {
-    return generatePageMetadata(defaultLocale, path);
+    return generatePageMetadata(path);
   }
 
   const title = `${project.title} — Abduraxmon Tojixojayev`;
   const description = project.desc;
   const image = project.images[0];
 
-  return generatePageMetadata(defaultLocale, path, {
+  return generatePageMetadata(path, {
     title,
     description,
     openGraph: {
